@@ -32,24 +32,39 @@ const menuNames: Menu[] = [
         height="40"
       >
       <Input
+        class="header__body-input hidden-tablet"
         item="search"
         input-class="header"
         placeholder="Поиск"
-        class="header__body-input"
       />
-      <Button class="header__body-button">+380 630 130 103</Button>
-      <a class="header__body-tab hidden-mobile" href="#">
+      <Button class="header__body-button hidden-tablet">+380 630 130 103</Button>
+      <a class="header__body-tab hidden-tablet" href="#">
         <img
-          src="@/assets/icons/profile.svg"
+          src="@/assets/icons/header/profile.svg"
           alt=""
           width="40"
           height="40"
         >
       </a>
-      <div class="header__body-lang hidden-mobile">
+      <div class="header__body-lang hidden-tablet">
         <router-link to="#">RU</router-link>
         /
         <router-link to="#">ENG</router-link>
+      </div>
+      <div class="header__body-mobile-tabs visible-tablet">
+        <router-link to="">
+          <img
+            src="@/assets/icons/header/search-icon.svg"
+            alt=""
+            width="27"
+            height="27"
+          >
+        </router-link>
+        <div class="header__body-burger-menu">
+          <span class="header__body-burger-menu-line"></span>
+          <span class="header__body-burger-menu-line"></span>
+          <span class="header__body-burger-menu-line"></span>
+        </div>
       </div>
   </div>
     <div class="header__bottom hidden-mobile">
@@ -96,6 +111,11 @@ const menuNames: Menu[] = [
         width: 293px;
         height: 23px;
       }
+
+      @include mobile-s {
+        width: 210px;
+        height: 16px;
+      }
     }
 
     &-input {
@@ -109,6 +129,26 @@ const menuNames: Menu[] = [
 
       @include laptop {
         font-size: 12px;
+      }
+    }
+
+    &-mobile-tabs {
+      display: flex;
+      column-gap: 29px;
+    }
+
+    &-burger-menu {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      row-gap: 4px;
+      cursor: pointer;
+
+      &-line {
+        width: 28px;
+        height: 2px;
+        border-radius: $bor-radius-90;
+        background-color: $dark-color;
       }
     }
   }
