@@ -50,3 +50,15 @@ $mobile-s: 480.98px;
     @content;
   }
 }
+
+@mixin custom-691px-above {
+  @media (width > 691px) {
+    @content
+  }
+}
+
+@mixin custom-691px {
+  @media (width <= 691px) {
+    @content
+  }
+}

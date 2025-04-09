@@ -22,15 +22,14 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 input {
-  font-weight: 500;
-  padding: 18px 28px;
-  max-width: 491px;
   width: 100%;
-  border: 4px solid $dark-color;
-  border-radius: $bor-radius-90;
 
   &.header__input {
+    font-weight: 500;
+    max-width: 491px;
     padding: 10px 16px;
+    border-radius: $bor-radius-90;
+    border: 4px solid $dark-color;
 
     &::placeholder {
       color: #8E8E8E;
@@ -38,8 +37,14 @@ input {
     }
   }
 
-  &.footer__input::placeholder {
-    color: $dark-color;
+  &.footer__input {
+    padding: 15px;
+    border: 2px solid $dark-color;
+    border-radius: 15px;
+
+    &::placeholder {
+      color: $dark-color;
+    }
   }
 }
 </style>
