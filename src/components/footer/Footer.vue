@@ -158,6 +158,10 @@ const informationCol = [
       gap: 0;
     }
 
+    @include mobile-s {
+      column-gap: 21px;
+    }
+
     &-info {
       display: flex;
       flex-direction: column;
@@ -182,6 +186,11 @@ const informationCol = [
 
       &-logo {
         padding-bottom: 15px;
+
+        @include mobile {
+          width: 277px;
+          padding-bottom: 9px;
+        }
       }
 
       &-description {
@@ -194,6 +203,12 @@ const informationCol = [
 
         @include custom-691px {
           padding-bottom: 21px;
+        }
+
+        @include mobile-s {
+          font-size: 12px;
+          text-align: center;
+          padding-bottom: 29px;
         }
       }
 
@@ -264,9 +279,17 @@ const informationCol = [
       column-gap: 68px;
       padding-block: 30px 32px;
 
+      @include mobile-s {
+        padding-block: 33px 42px;
+      }
+
       .footer__body-info-contacts {
         align-self: center;
         padding: 0;
+
+        @include mobile-s {
+          align-items: center;
+        }
 
         &-tel {
           height: 22px;
@@ -289,6 +312,11 @@ const informationCol = [
 
       @include custom-691px-above {
         display: none !important;
+      }
+
+      @include mobile-s {
+        flex-direction: column;
+        gap: 41px 0;
       }
     }
 
@@ -316,6 +344,12 @@ const informationCol = [
         grid-column: -1 / 1;
       }
 
+      @include mobile-s {
+        justify-self: center;
+        align-items: center;
+        text-align: center;
+      }
+
       &-description {
         font-size: 16px;
         line-height: 164%;
@@ -332,6 +366,11 @@ const informationCol = [
           font-size: 14px;
           padding-bottom: 20px;
         }
+
+        @include mobile-s {
+          font-size: 12px;
+          padding-bottom: 8px;
+        }
       }
     }
 
@@ -342,6 +381,11 @@ const informationCol = [
       color: #9FA3B2;
       column-gap: 5px;
 
+      @include mobile-s {
+        flex-direction: column;
+        align-items: center;
+        gap: 3px 0;
+      }
 
       & a:last-child {
         text-decoration: underline;
