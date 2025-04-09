@@ -147,7 +147,7 @@ const informationCol = [
       'list-1 list-2 form';
     }
 
-    @include custom-691px {
+    @include custom-620px {
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
       'info info'
@@ -177,7 +177,7 @@ const informationCol = [
           flex-direction: column;
 
           &:last-child {
-            @include custom-691px {
+            @include custom-620px {
               display: none !important;
             }
           }
@@ -201,7 +201,7 @@ const informationCol = [
         max-width: 410px;
         padding-bottom: 40px;
 
-        @include custom-691px {
+        @include custom-620px {
           padding-bottom: 21px;
         }
 
@@ -222,7 +222,7 @@ const informationCol = [
           padding-bottom: 28px;
         }
 
-        @include custom-691px {
+        @include custom-620px {
           font-size: 18px;
         }
 
@@ -310,7 +310,7 @@ const informationCol = [
         }
       }
 
-      @include custom-691px-above {
+      @include custom-620px-above {
         display: none !important;
       }
 
@@ -340,7 +340,7 @@ const informationCol = [
         padding: 0;
       }
 
-      @include custom-691px {
+      @include custom-620px {
         grid-column: -1 / 1;
       }
 
