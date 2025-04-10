@@ -1,29 +1,43 @@
+<script setup lang="ts">
+type buttonClass = 'default' | 'transparent'
+
+defineProps<{
+  btnClass?: buttonClass
+}>()
+</script>
+
 <template>
-  <button type="button">
+  <button type="button" :class="btnClass">
     <slot />
   </button>
 </template>
 
 <style scoped lang="scss">
 button {
-  color: #EEF1F6;
-  font-size: 17px;
-  font-weight: 500;
-  padding: 17px 62px;
-  border: none;
-  border-radius: $bor-radius-90;
-  background-color: $green-color;
+  font-size: 18px;
+  text-wrap: nowrap;
 
-  @include laptop {
-    font-size: 14px;
-    padding: 10px 37px;
+  &.default {
+    color: #eef1f6;
     font-weight: 600;
+    padding: 17px 62px;
+    border: none;
+    border-radius: $bor-radius-90;
+    background-color: $green-color;
+
+    @include laptop {
+      font-size: 14px;
+      padding: 10px 37px;
+    }
+
+    &:hover {
+      box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.1);
+    }
   }
 
-  &:hover {
-    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.1);
+  &.transparent {
+    background: initial;
+    border: none;
   }
-
-  &:active {}
 }
 </style>

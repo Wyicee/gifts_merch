@@ -51,6 +51,18 @@ $mobile-s: 480.98px;
   }
 }
 
+@mixin custom-998px-above {
+  @media (width > 998px) {
+    @content
+  }
+}
+
+@mixin custom-998px {
+  @media (width <= 998px) {
+    @content
+  }
+}
+
 @mixin custom-620px-above {
   @media (width > 620px) {
     @content
@@ -59,6 +71,18 @@ $mobile-s: 480.98px;
 
 @mixin custom-620px {
   @media (width <= 620px) {
+    @content
+  }
+}
+
+@mixin custom-640px-above {
+  @media (width > 640px) {
+    @content
+  }
+}
+
+@mixin custom-640px {
+  @media (width <= 640px) {
     @content
   }
 }

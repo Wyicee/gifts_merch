@@ -5,40 +5,77 @@ const socialsList = [
   { id: 1, img: 'src/assets/icons/footer/facebook.svg', href: 'https://www.facebook.com' },
   { id: 2, img: 'src/assets/icons/footer/instagram.svg', href: 'https://www.instagram.com' },
   { id: 3, img: 'src/assets/icons/footer/linkedin.svg', href: 'https://www.linkedin.com' },
-];
+]
 
 const categoriesCol = [
   { id: 1, name: 'Пошив' },
   { id: 2, name: 'Все товары' },
   { id: 3, name: 'Наборы' },
   { id: 4, name: 'Производство' },
-];
+]
 
 const informationCol = [
   { id: 1, name: 'О нас' },
   { id: 2, name: 'ЧаВо' },
   { id: 3, name: 'Контакты' },
-];
+]
 </script>
 
 <template>
-<footer class="footer">
-  <div class="container">
-    <div class="footer__body">
-      <div class="footer__body-info">
-        <div class="footer__body-info-column-mobile">
-          <img
-            class="footer__body-info-logo"
-            src="@/assets/icons/logo.svg"
-            alt=""
-            width="489"
-            height="40"
-          >
-          <p class="footer__body-info-description">
-            Свежее дыхание в корпоративной жизни и жизни корпоративной дыхание свежее
-          </p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__body">
+        <div class="footer__body-info">
+          <div class="footer__body-info-column-mobile">
+            <img
+              class="footer__body-info-logo"
+              src="@/assets/icons/logo.svg"
+              alt=""
+              width="489"
+              height="40"
+            />
+            <p class="footer__body-info-description">
+              Свежее дыхание в корпоративной жизни и жизни корпоративной дыхание свежее
+            </p>
+          </div>
+          <div class="footer__body-info-column-mobile">
+            <div class="footer__body-info-contacts">
+              <a href="tel:+380630130103" class="footer__body-info-contacts-tel">
+                +380 630 130 103
+              </a>
+              <a href="mailto:example@gmail.com" class="footer__body-info-contacts-email">
+                example@gmail.com
+              </a>
+            </div>
+            <div class="footer__body-info-soc1als">
+              <a
+                class="footer__body-info-soc1als-item"
+                target="_blank"
+                v-for="item in socialsList"
+                :key="item.id"
+                :href="item.href"
+                ><img :src="item.img" alt="" width="25" height="25"
+              /></a>
+            </div>
+          </div>
         </div>
-        <div class="footer__body-info-column-mobile">
+        <ul class="footer__body-list">
+          <li class="footer__body-list-item-title">Категории</li>
+          <li class="footer__body-list-item" v-for="item in categoriesCol" :key="item.id">
+            <router-link to="" class="footer__body-list-item-link">
+              {{ item.name }}
+            </router-link>
+          </li>
+        </ul>
+        <ul class="footer__body-list">
+          <li class="footer__body-list-item-title">Информация</li>
+          <li class="footer__body-list-item" v-for="item in informationCol" :key="item.id">
+            <router-link to="" class="footer__body-list-item-link">
+              {{ item.name }}
+            </router-link>
+          </li>
+        </ul>
+        <div class="footer__body-column-mobile">
           <div class="footer__body-info-contacts">
             <a href="tel:+380630130103" class="footer__body-info-contacts-tel">
               +380 630 130 103
@@ -51,76 +88,28 @@ const informationCol = [
             <a
               class="footer__body-info-soc1als-item"
               target="_blank"
-              v-for="item in socialsList" :key="item.id"
+              v-for="item in socialsList"
+              :key="item.id"
               :href="item.href"
-            ><img
-              :src="item.img"
-              alt=""
-              width="25"
-              height="25"
-            ></a>
+              ><img :src="item.img" alt="" width="25" height="25"
+            /></a>
           </div>
         </div>
-      </div>
-      <ul class="footer__body-list">
-        <li class="footer__body-list-item-title">Категории</li>
-        <li
-          class="footer__body-list-item"
-          v-for="item in categoriesCol" :key="item.id"
-        >
-          <router-link to="" class="footer__body-list-item-link">
-            {{ item.name }}
-          </router-link>
-        </li>
-      </ul>
-      <ul class="footer__body-list">
-        <li class="footer__body-list-item-title">Информация</li>
-        <li
-          class="footer__body-list-item"
-          v-for="item in informationCol" :key="item.id"
-        >
-          <router-link to="" class="footer__body-list-item-link">
-            {{ item.name }}
-          </router-link>
-        </li>
-      </ul>
-      <div class="footer__body-column-mobile">
-        <div class="footer__body-info-contacts">
-          <a href="tel:+380630130103" class="footer__body-info-contacts-tel">
-            +380 630 130 103
-          </a>
-          <a href="mailto:example@gmail.com" class="footer__body-info-contacts-email">
-            example@gmail.com
-          </a>
-        </div>
-        <div class="footer__body-info-soc1als">
-          <a
-            class="footer__body-info-soc1als-item"
-            target="_blank"
-            v-for="item in socialsList" :key="item.id"
-            :href="item.href"
-          ><img
-            :src="item.img"
-            alt=""
-            width="25"
-            height="25"
-          ></a>
+        <div class="footer__body-form">
+          <h4 class="footer__body-form-title">Связаться с менеджером</h4>
+          <p class="footer__body-form-description">
+            Есть вопрос на который не нашли ответ?<br />
+            Оставьте контакт и наш менеджер свяжеться с вами
+          </p>
+          <Form type="footer" />
         </div>
       </div>
-      <div class="footer__body-form">
-        <h4 class="footer__body-form-title">Связаться с менеджером</h4>
-        <p class="footer__body-form-description">
-          Есть вопрос на который не нашли ответ?<br> Оставьте контакт и наш менеджер свяжеться с вами
-        </p>
-        <Form type="footer"/>
+      <div class="footer__body-copyright">
+        <p>© 2022. All rights reserved.</p>
+        <router-link to="">Политика конфиденциальности</router-link>
       </div>
     </div>
-    <div class="footer__body-copyright">
-      <p>© 2022. All rights reserved.</p>
-      <router-link to="">Политика конфиденциальности</router-link>
-    </div>
-  </div>
-</footer>
+  </footer>
 </template>
 
 <style scoped lang="scss">
@@ -143,17 +132,17 @@ const informationCol = [
 
     @include mobile {
       grid-template-areas:
-      'info info info'
-      'list-1 list-2 form';
+        'info info info'
+        'list-1 list-2 form';
     }
 
     @include custom-620px {
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
-      'info info'
-      'list-1 list-2'
-      'contacts contacts'
-      'form form';
+        'info info'
+        'list-1 list-2'
+        'contacts contacts'
+        'form form';
       justify-content: normal;
       gap: 0;
     }
@@ -190,6 +179,10 @@ const informationCol = [
         @include mobile {
           width: 277px;
           padding-bottom: 9px;
+        }
+
+        @include mobile-s {
+          align-self: center;
         }
       }
 
@@ -254,7 +247,7 @@ const informationCol = [
           grid-area: list-1;
         }
 
-        &:last-child{
+        &:last-child {
           grid-area: list-2;
         }
       }
@@ -353,7 +346,7 @@ const informationCol = [
       &-description {
         font-size: 16px;
         line-height: 164%;
-        color: #8F90A6;
+        color: #8f90a6;
         max-width: 280px;
         padding-bottom: 22px;
 
@@ -378,7 +371,7 @@ const informationCol = [
       display: flex;
       justify-content: center;
       font-size: 13px;
-      color: #9FA3B2;
+      color: #9fa3b2;
       column-gap: 5px;
 
       @include mobile-s {
