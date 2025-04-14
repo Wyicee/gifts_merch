@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Form from '@/components/ui/Form.vue'
+import Input from '@/components/ui/Input.vue'
 
 const socialsList = [
   { id: 1, img: 'src/assets/icons/footer/facebook.svg', href: 'https://www.facebook.com' },
@@ -96,12 +97,19 @@ const informationCol = [
           </div>
         </div>
         <div class="footer__body-form">
-          <h4 class="footer__body-form-title">Связаться с менеджером</h4>
-          <p class="footer__body-form-description">
-            Есть вопрос на который не нашли ответ?<br />
-            Оставьте контакт и наш менеджер свяжеться с вами
-          </p>
-          <Form type="footer" />
+          <Form direction="column">
+            <h4 class="footer__body-form-title">Связаться с менеджером</h4>
+            <p class="footer__body-form-description">
+              Есть вопрос на который не нашли ответ?<br />
+              Оставьте контакт и наш менеджер свяжеться с вами
+            </p>
+            <Input
+              class="footer__body-form-input"
+              mods="footer"
+              type="tel"
+              placeholder="Номер телефона"
+            />
+          </Form>
         </div>
       </div>
       <div class="footer__body-copyright">

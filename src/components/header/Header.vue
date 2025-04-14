@@ -25,7 +25,12 @@ const menuNames: Menu[] = [
   <div class="header">
     <div class="header__main container">
       <img class="header__main-logo" src="@/assets/icons/logo.svg" alt="" width="489" height="40" />
-      <Input class="header__main-input hidden-tablet" input-class="header" placeholder="Поиск" />
+      <Input
+        class="header__main-input hidden-tablet"
+        mods="header"
+        type="search"
+        placeholder="Поиск"
+      />
       <Button class="header__main-search visible-tablet" btn-class="transparent">
         <svg
           width="22"

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Input from '@/components/ui/Input.vue'
 import Button from '@/components/ui/Button.vue'
+import Form from '@/components/ui/Form.vue'
 </script>
 
 <template>
@@ -27,12 +28,12 @@ import Button from '@/components/ui/Button.vue'
         <span class="idea__body-rocket"></span>
         <span class="idea__body-curve"></span>
       </div>
-      <form method="post" class="idea__body-form">
-        <Input type="text" input-class="idea" placeholder="Ваше Имя" />
-        <Input type="email" input-class="idea" placeholder="Ваша електронная почта" />
-        <Input type="tel" input-class="idea" placeholder="Ваш номер телефона" />
+      <Form class="idea__body-form" direction="row">
+        <Input type="text" mods="idea" placeholder="Ваше Имя" />
+        <Input type="email" mods="idea" placeholder="Ваша електронная почта" />
+        <Input type="tel" mods="idea" placeholder="Ваш номер телефона" />
         <Button btn-class="default" type="submit">Заказать</Button>
-      </form>
+      </Form>
     </div>
   </div>
 </template>

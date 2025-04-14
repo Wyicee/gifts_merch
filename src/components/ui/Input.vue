@@ -1,17 +1,41 @@
 <script setup lang="ts">
-type classInput = 'header' | 'footer' | 'idea'
+interface InputProps {
+  type?: string
+  placeholder?: string
+  error?: string
+  label?: string
+  modelValue?: string | number | []
+  mods?: 'header' | 'footer' | 'idea'
+}
 
-defineProps<{
-  inputClass?: classInput
+defineProps<InputProps>()
+
+const id = 'input-' + Math.floor(Math.random() * 100)
+
+const emit = defineEmits<{
+  update: [value: unknown]
 }>()
 </script>
 
 <template>
-  <input :class="inputClass" />
+  <div class="form-control">
+    <label class="label" :for="id">
+      {{ label }}
+    </label>
+    <input
+      :class="`input ${mods}`"
+      :type="type"
+      :placeholder="placeholder"
+      :id="id"
+      :value="modelValue"
+      @input="emit('update', modelValue)"
+    />
+    <small class="error" v-if="error">{{ error }}</small>
+  </div>
 </template>
 
 <style scoped lang="scss">
-input {
+.input {
   width: 100%;
 
   &.header {

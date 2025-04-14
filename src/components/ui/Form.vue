@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import Input from '@/components/ui/Input.vue'
-
-type formType = 'footer' | 'idea'
-
 defineProps<{
-  formType?: formType
+  action?: () => void
+  direction?: 'column' | 'row'
 }>()
 </script>
 
 <template>
-  <form method="post" v-if="formType">
-    <Input type="tel" input-class="footer" placeholder="Номер телефона" />
-  </form>
-  <form method="post" v-else-if="formType">
-    <Input type="name" input-class="idea" placeholder="Имя" />
+  <form class="form" @submit.prevent="action" :style="`flex-direction: ${direction}`">
+    <slot />
   </form>
 </template>
+
+<style scoped lang="scss">
+.form {
+  display: flex;
+}
+</style>
