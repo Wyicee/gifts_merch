@@ -1,30 +1,27 @@
 <script setup lang="ts">
-import { useFooStore } from '@/stores/counter.ts'
 import Button from '@/components/ui/Button.vue'
 
-import type { State } from '@/types/state.ts'
-
-const store = useFooStore()
-
-const storeItem = store.List.slice(1, 2)
-
-const toggleShow = (item: State) => {
-  item.show = !item.show
+interface Props {
+  item: State
 }
+
+defineProps<Props>()
+
+const emit = defineEmits<{
+  toggle: []
+}>()
 </script>
 
 <template>
   <div class="wrapper">
-    <template v-for="item in storeItem" :key="item.id">
-      <Button mods="transparent" @click="toggleShow(item)">
-        {{ item.show ? 'Закрыть' : 'Открыть' }}
-      </Button>
-      <div class="wrapper__body" :class="{ expanded: item.show }">
-        <Transition>
-          <p class="wrapper__body-text" v-show="item.show">{{ item.text }}</p>
-        </Transition>
-      </div>
-    </template>
+    <Button mods="transparent" @click="emit('toggle')">
+      {{ item.show ? 'Закрыть' : 'Открыть' }}
+    </Button>
+    <div class="wrapper__body" :class="{ expanded: item.show }">
+      <Transition>
+        <p class="wrapper__body-text" v-show="item.show">{{ item.text }}</p>
+      </Transition>
+    </div>
   </div>
 </template>
 
