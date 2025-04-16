@@ -1,12 +1,25 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
+import type { State } from '@/types/state.ts'
 
-  return { count, doubleCount, increment }
+export const useFooStore = defineStore('store', {
+  state: () => ({
+    List: [
+      {
+        id: 1,
+        text: 'Block-1',
+        show: false,
+      },
+      {
+        id: 2,
+        text: 'Block-2',
+        show: false,
+      },
+      {
+        id: 3,
+        text: 'Block-3',
+        show: false,
+      },
+    ] as State[],
+  }),
 })

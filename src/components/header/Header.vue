@@ -3,6 +3,7 @@ import Input from '@/components/ui/Input.vue'
 import Button from '@/components/ui/Button.vue'
 
 import { useRoute } from 'vue-router'
+import { computed, ref } from 'vue'
 
 interface Menu {
   id: number
@@ -19,6 +20,21 @@ const menuNames: Menu[] = [
   { id: 4, name: 'Производство', path: '/4' },
   { id: 5, name: 'Информация', path: '/5' },
 ]
+
+const currentLang = ref<'ru' | 'eng'>('ru')
+
+const isDisabled = computed(() => ({
+  ru: currentLang.value === 'ru',
+  eng: currentLang.value === 'eng',
+}))
+
+const handleClick = () => {
+  if (currentLang.value === 'ru') {
+    currentLang.value = 'eng'
+  } else {
+    currentLang.value = 'ru'
+  }
+}
 </script>
 
 <template>
@@ -31,7 +47,7 @@ const menuNames: Menu[] = [
         type="search"
         placeholder="Поиск"
       />
-      <Button class="header__main-search visible-tablet" btn-class="transparent">
+      <Button class="header__main-search visible-tablet" mods="transparent">
         <svg
           width="22"
           height="22"
@@ -47,15 +63,19 @@ const menuNames: Menu[] = [
           />
         </svg>
       </Button>
-      <Button class="header__main-button" btn-class="default">+380 630 130 103</Button>
+      <Button class="header__main-button" mods="default">+380 630 130 103</Button>
       <div class="header__main-tab hidden-mobile">
         <router-link class="header__main-tab-profile" to="">
           <img src="@/assets/icons/header/profile.svg" alt="" width="40" height="40" />
         </router-link>
         <div class="header__main-tab-lang">
-          <Button disabled btn-class="transparent">RU</Button>
+          <Button :disabled="isDisabled.ru" mods="transparent" @update:modelValue="handleClick"
+            >RU
+          </Button>
           /
-          <Button btn-class="transparent">ENG</Button>
+          <Button :disabled="isDisabled.eng" mods="transparent" @update:modelValue="handleClick">
+            ENG
+          </Button>
         </div>
       </div>
       <div class="header__main-burger visible-mobile">

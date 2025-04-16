@@ -1,13 +1,15 @@
 <script setup lang="ts">
-type buttonClass = 'default' | 'transparent'
+interface ButtonProps {
+  mods?: 'default' | 'transparent'
+}
 
-defineProps<{
-  btnClass?: buttonClass
-}>()
+const emit = defineEmits<{ 'update:modelValue': [] }>()
+
+defineProps<ButtonProps>()
 </script>
 
 <template>
-  <button type="button" :class="btnClass">
+  <button type="button" @click="emit('update:modelValue')" :class="mods">
     <slot />
   </button>
 </template>

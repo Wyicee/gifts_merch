@@ -32,7 +32,7 @@ import Form from '@/components/ui/Form.vue'
         <Input type="text" mods="idea" placeholder="Ваше Имя" />
         <Input type="email" mods="idea" placeholder="Ваша електронная почта" />
         <Input type="tel" mods="idea" placeholder="Ваш номер телефона" />
-        <Button btn-class="default" type="submit">Заказать</Button>
+        <Button mods="default" type="submit">Заказать</Button>
       </Form>
     </div>
   </div>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useId } from 'vue'
+
 interface InputProps {
   type?: string
   placeholder?: string
@@ -10,7 +12,7 @@ interface InputProps {
 
 defineProps<InputProps>()
 
-const id = 'input-' + Math.floor(Math.random() * 100)
+const id = useId()
 
 const emit = defineEmits<{
   update: [value: unknown]
@@ -19,7 +21,7 @@ const emit = defineEmits<{
 
 <template>
   <div class="form-control">
-    <label class="label" :for="id">
+    <label class="label" :for="id" v-if="label">
       {{ label }}
     </label>
     <input
