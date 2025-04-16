@@ -46,7 +46,6 @@ const toggleShow = (item: State) => {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.5s ease;
 
   &__wrapper {
     display: grid;
@@ -55,7 +54,7 @@ const toggleShow = (item: State) => {
   }
 }
 
-.list-move, /* применять переход к движущимся элементам */
+.list-move,
 .list-enter-active,
 .list-leave-active {
   transition: all 0.5s ease;
@@ -64,7 +63,7 @@ const toggleShow = (item: State) => {
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-  transform: translateY(-30px);
+  transition: all 0.6s ease;
 }
 
 .list-leave-active {
