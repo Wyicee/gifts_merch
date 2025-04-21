@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
 
+import type { State } from '@/types/state'
+
 interface Props {
   item: State
 }

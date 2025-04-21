@@ -131,6 +131,10 @@ const handleClick = () => {
       }
     }
 
+    &-input {
+      width: 100%;
+    }
+
     &-search {
       display: flex;
       align-items: center;

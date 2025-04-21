@@ -1,9 +1,9 @@
 <script setup lang="ts">
-// import Idea from '@/components/layouts/Idea.vue'
-import FooParent from '@/components/foo/FooParent.vue'
+import Idea from '@/components/layouts/Idea.vue'
+import Collab from '@/components/layouts/Collab.vue'
 </script>
 
 <template>
-  <!--  <Idea />-->
-  <FooParent />
+  <Idea />
+  <Collab />
 </template>

@@ -6,19 +6,18 @@ import { computed } from 'vue'
 
 import type { State } from '@/types/state.ts'
 
-const store = useFooStore()
+const { List } = useFooStore()
 
 const visibleList = computed(() => {
-  const list = store.List
-  if (!list[0].show) {
-    return [list[0]]
+  if (!List[0].show) {
+    return [List[0]]
   }
 
-  return store.List.filter((_, index) => {
+  return List.filter((_, index) => {
     if (index === 0) {
       return true
     }
-    return store.List[index - 1].show
+    return List[index - 1].show
   })
 })
 
@@ -29,7 +28,7 @@ const toggleShow = (item: State) => {
 
 <template>
   <div class="block">
-    <TransitionGroup name="list" mode="in-out">
+    <TransitionGroup name="list">
       <div class="block__wrapper" v-for="item in visibleList" :key="item.id">
         <FooChild :item="item" @toggle="toggleShow(item)" />
       </div>
