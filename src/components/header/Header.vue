@@ -3,7 +3,8 @@ import Input from '@/components/ui/Input.vue'
 import Button from '@/components/ui/Button.vue'
 
 import { useRoute } from 'vue-router'
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+import ModalWindow from '@/components/header/ModalWindow.vue'
 
 interface Menu {
   id: number
@@ -21,6 +22,7 @@ const menuNames: Menu[] = [
   { id: 5, name: 'Информация', path: '/5' },
 ]
 
+const isOpen = ref(false)
 const currentLang = ref<'ru' | 'eng'>('ru')
 
 const isDisabled = computed(() => ({
@@ -35,6 +37,13 @@ const handleClick = () => {
     currentLang.value = 'ru'
   }
 }
+
+watch(
+  () => isOpen.value,
+  (newValue: boolean) => {
+    document.documentElement.classList.toggle('is-lock', newValue)
+  },
+)
 </script>
 
 <template>
@@ -78,7 +87,12 @@ const handleClick = () => {
           </Button>
         </div>
       </div>
-      <div class="header__main-burger visible-mobile">
+      <div
+        class="header__main-burger visible-mobile"
+        aria-label="Open menu"
+        title="Open menu"
+        @click="isOpen = true"
+      >
         <span class="header__main-burger-line"></span>
         <span class="header__main-burger-line"></span>
         <span class="header__main-burger-line"></span>
@@ -106,6 +120,9 @@ const handleClick = () => {
       </div>
     </div>
   </div>
+  <Teleport to="#modal" v-if="isOpen" defer>
+    <ModalWindow @closeModal="isOpen = false" />
+  </Teleport>
 </template>
 
 <style scoped lang="scss">
@@ -192,6 +209,7 @@ const handleClick = () => {
       display: flex;
       flex-direction: column;
       row-gap: 4px;
+      cursor: pointer;
 
       &-line {
         width: 28px;
@@ -226,8 +244,8 @@ const handleClick = () => {
         &::after {
           content: url('@/assets/images/header/banner.png');
           position: absolute;
-          right: 0%;
-          top: 0%;
+          right: 0;
+          top: 0;
           z-index: -999;
         }
       }

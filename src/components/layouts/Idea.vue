@@ -8,7 +8,7 @@ import { useWindowSize } from '@vueuse/core'
 import { computed, ref, watchEffect } from 'vue'
 
 const { width } = useWindowSize()
-const isDesktop = ref(false)
+const isDesktop = ref<boolean | null>(null)
 
 watchEffect(() => {
   isDesktop.value = width.value >= 1023.98
