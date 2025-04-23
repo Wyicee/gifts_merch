@@ -68,7 +68,7 @@ const formText = computed(() => (isDesktop.value ? 'в течение 1 часа
 .idea {
   background: url('@/assets/images/idea/bg.svg') no-repeat top center;
   background-size: cover;
-  height: 100%;
+  height: 750px;
   position: relative;
 
   &__body {
@@ -88,6 +88,7 @@ const formText = computed(() => (isDesktop.value ? 'в течение 1 часа
         'column-1 column-2'
         'subtitle form';
       row-gap: 35px;
+      height: 100%;
     }
 
     @include mobile {
@@ -106,6 +107,7 @@ const formText = computed(() => (isDesktop.value ? 'в течение 1 часа
 
         @include mobile {
           text-align: center;
+          justify-self: center;
         }
       }
 
@@ -166,6 +168,10 @@ const formText = computed(() => (isDesktop.value ? 'в течение 1 часа
         padding-top: 40px;
       }
 
+      @include mobile-s {
+        padding: 0;
+      }
+
       .text-decoration {
         color: #1fab8a;
       }
@@ -195,6 +201,10 @@ const formText = computed(() => (isDesktop.value ? 'в течение 1 часа
     }
 
     &-rocket {
+      @include mobile-s {
+        @include visually-hidden;
+      }
+
       &::after {
         content: '';
         background-image: url('@/assets/images/idea/rocket-1.svg');
@@ -246,6 +256,10 @@ const formText = computed(() => (isDesktop.value ? 'в течение 1 часа
     }
 
     &-curve {
+      @include mobile-s {
+        @include visually-hidden;
+      }
+
       &::after {
         content: '';
         background-image: url('@/assets/images/idea/curve.svg');

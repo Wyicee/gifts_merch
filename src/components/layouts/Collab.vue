@@ -18,10 +18,14 @@ const { LogosList } = useFooStore()
 <style scoped lang="scss">
 .collab {
   &__body {
-    padding-block: 30px;
+    padding-top: 60px;
 
     &-title {
       padding-bottom: 70px;
+
+      @include mobile {
+        font-size: 28px;
+      }
     }
   }
 }

@@ -105,7 +105,7 @@ watch(
             <li class="header__body-menu-list-item" v-for="item in menuNames" :key="item.id">
               <router-link
                 class="header__body-menu-list-item-link"
-                :to="item.path"
+                to="/"
                 :class="{ 'is-active': route.path === item.path }"
               >
                 {{ item.name }}
@@ -120,9 +120,11 @@ watch(
       </div>
     </div>
   </div>
-  <Teleport to="#modal" v-if="isOpen" defer>
-    <ModalWindow @closeModal="isOpen = false" />
-  </Teleport>
+  <Transition name="modal" appear>
+    <Teleport to="#modal" v-if="isOpen" defer>
+      <ModalWindow @closeModal="isOpen = false" />
+    </Teleport>
+  </Transition>
 </template>
 
 <style scoped lang="scss">
@@ -246,7 +248,7 @@ watch(
           position: absolute;
           right: 0;
           top: 0;
-          z-index: -999;
+          pointer-events: none;
         }
       }
     }
@@ -296,5 +298,15 @@ watch(
       }
     }
   }
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.2s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
 }
 </style>

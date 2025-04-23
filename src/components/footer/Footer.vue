@@ -131,7 +131,7 @@ const informationCol = [
     justify-content: space-between;
     align-items: start;
     column-gap: 58px;
-    padding-bottom: 43px;
+    padding-block: 50px;
 
     @include tablet {
       grid-template-columns: repeat(3, auto);
