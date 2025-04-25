@@ -9,7 +9,7 @@ import Button from '@/components/ui/Button.vue'
         <img
           class="creative__body-word"
           src="@/assets/images/creative/creative.png"
-          alt=""
+          alt="CREATIVE-WORD-OMG"
           width="299"
           height="64"
         />
@@ -38,17 +38,28 @@ import Button from '@/components/ui/Button.vue'
 
 <style scoped lang="scss">
 .creative {
-  background-image: url('@/assets/images/creative/bg.png');
+  background: url('@/assets/images/creative/bg.png') no-repeat;
   background-size: cover;
+  overflow: hidden;
+
+  @include mobile {
+    background-size: contain;
+    background-position: center bottom;
+    overflow: initial;
+  }
 
   &__body {
     display: flex;
     align-items: center;
+    padding-top: 100px;
+
+    @include mobile {
+      flex-direction: column;
+    }
 
     &-wrapper {
       display: flex;
       flex-direction: column;
-      position: relative;
     }
 
     &-word {
@@ -57,14 +68,34 @@ import Button from '@/components/ui/Button.vue'
 
     &-title {
       line-height: 130%;
-      margin-right: -200px;
       padding-top: 9px;
+      margin-right: -200px;
+      z-index: 999;
+
+      @include tablet {
+        font-size: 28px;
+        margin-right: -100px;
+      }
+
+      @include mobile {
+        font-size: 24px;
+        padding-top: 22px;
+        margin: 0;
+      }
     }
 
     &-description {
       color: $dark-grey-color;
+      line-height: 130%;
       letter-spacing: 0.07em;
       padding-top: 23px;
+      margin-right: -200px;
+      z-index: 999;
+
+      @include mobile {
+        font-size: 16px;
+        margin: 0;
+      }
     }
 
     &-buttons {
@@ -72,6 +103,17 @@ import Button from '@/components/ui/Button.vue'
       align-items: center;
       column-gap: 29px;
       padding-top: 44px;
+
+      @include mobile {
+        flex-direction: column;
+        gap: 20px 0;
+
+        button {
+          padding-block: 13px;
+          max-width: 280px;
+          width: 100%;
+        }
+      }
 
       button:first-child {
         background-color: $dark-color;
@@ -85,6 +127,18 @@ import Button from '@/components/ui/Button.vue'
 
     &-image {
       margin-top: 50px;
+
+      @include tablet {
+        margin-right: -200px;
+        width: 573px;
+      }
+
+      @include mobile {
+        margin: 0;
+        padding-top: 33px;
+        margin-bottom: -50px;
+        width: 372px;
+      }
     }
   }
 }
