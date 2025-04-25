@@ -70,6 +70,11 @@ const formText = computed(() => (isDesktop.value ? 'в течение 1 часа
   background-size: cover;
   height: 750px;
   position: relative;
+  padding-top: 100px;
+
+  @include mobile {
+    padding-top: 200px;
+  }
 
   &__body {
     display: grid;
@@ -80,7 +85,6 @@ const formText = computed(() => (isDesktop.value ? 'в течение 1 часа
       'form form';
     align-items: center;
     align-content: center;
-    padding-block: 43px;
     gap: 60px 20px;
 
     @include laptop {

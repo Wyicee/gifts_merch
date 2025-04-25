@@ -12,63 +12,126 @@ const preferencesList = [
   <div class="hero">
     <Header />
     <div class="hero__body container">
-      <div class="hero__body-wrapper">
-        <h2 class="hero__body-title">Свежее дыхание в корпоративной жизни</h2>
-        <p class="hero__body-description">
-          Ми вдосконалили процес замовлення продукції для того, щоб Ви і Ваша компанія
-          сконцентрувались на основних задачах<br />
-          і досягали поставлених цілей.
-        </p>
-        <div class="hero__body-preferences">
-          <div
-            class="hero__body-preferences-item"
-            v-for="(item, index) in preferencesList"
-            :key="index"
-          >
-            <img src="@/assets/images/hero/circle.svg" alt="" width="109" height="94" />
-            <p v-html="item"></p>
-          </div>
+      <h2 class="hero__body-title">Свежее дыхание в корпоративной жизни</h2>
+      <p class="hero__body-description">
+        Ми вдосконалили процес замовлення продукції для того, щоб Ви і Ваша компанія
+        сконцентрувались на основних задачах<br />
+        і досягали поставлених цілей.
+      </p>
+      <div class="hero__body-preferences">
+        <div
+          class="hero__body-preferences-item"
+          v-for="(item, index) in preferencesList"
+          :key="index"
+        >
+          <img src="@/assets/images/hero/circle.svg" alt="" width="109" height="94" />
+          <p v-html="item"></p>
         </div>
       </div>
-      <img src="@/assets/images/hero/bg-girls.png" alt="" width="785" height="610" />
+      <img
+        class="hero__body-image"
+        src="@/assets/images/hero/bg-girls.png"
+        alt="girls"
+        width="785"
+        height="610"
+      />
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .hero {
-  background: url('@/assets/images/hero/bg.svg') no-repeat;
+  background: url('@/assets/images/hero/bg.png') no-repeat;
   background-size: cover;
+  position: relative;
+  z-index: 1;
 
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
+  @include tablet {
+    background-size: contain;
+  }
+
+  @include mobile {
+    background-size: cover;
   }
 
   &__body {
-    display: flex;
+    display: grid;
+    grid-template-areas:
+      'title image'
+      'description image'
+      'preferences image';
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     column-gap: 39px;
 
+    @include tablet {
+      grid-template-areas:
+        'title image'
+        'description image'
+        'description image'
+        'preferences preferences';
+    }
+
+    @include mobile {
+      grid-template-areas:
+        'title title'
+        'description description'
+        'preferences image';
+    }
+
     &-title {
+      grid-area: title;
       font-weight: 900;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       padding-top: 49px;
+
+      @include laptop {
+        margin-right: -200px;
+      }
+
+      @include tablet {
+        font-size: 36px;
+      }
+
+      @include mobile {
+        max-width: 363px;
+      }
     }
 
     &-description {
+      grid-area: description;
       font-size: 18px;
       line-height: 130%;
       letter-spacing: 0.07em;
       max-width: 630px;
+      margin-right: -50px;
+
+      @include tablet {
+        font-size: 16px;
+      }
     }
 
     &-preferences {
+      grid-area: preferences;
       display: flex;
       align-items: center;
       column-gap: 12px;
-      padding-top: 66px;
+      padding-block: 66px 150px;
+
+      @include tablet {
+        grid-column: -1 / 1;
+        justify-self: center;
+        column-gap: 74px;
+        margin-top: 100px;
+      }
+
+      @include mobile {
+        flex-direction: column;
+        justify-self: start;
+        margin: 0;
+        padding-block: 33px 0;
+      }
 
       &-item {
         display: flex;
@@ -78,6 +141,18 @@ const preferencesList = [
         font-weight: 600;
         text-align: center;
         white-space: pre-wrap;
+
+        @include tablet {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &-image {
+      grid-area: image;
+
+      @include laptop {
+        margin-bottom: -100px;
       }
     }
   }

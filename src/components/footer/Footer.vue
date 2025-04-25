@@ -131,7 +131,8 @@ const informationCol = [
     justify-content: space-between;
     align-items: start;
     column-gap: 58px;
-    padding-block: 50px;
+    padding-bottom: 46px;
+    padding-top: 100px;
 
     @include tablet {
       grid-template-columns: repeat(3, auto);
@@ -142,6 +143,7 @@ const informationCol = [
       grid-template-areas:
         'info info info'
         'list-1 list-2 form';
+      padding-top: 70px;
     }
 
     @include custom-620px {
@@ -380,6 +382,7 @@ const informationCol = [
       justify-content: center;
       font-size: 13px;
       color: #9fa3b2;
+      padding-bottom: 39px;
       column-gap: 5px;
 
       @include mobile-s {

@@ -93,6 +93,7 @@ const handleClick = (id: number) => {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 999;
 
   .window__body {
     display: flex;

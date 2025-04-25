@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Input from '@/components/ui/Input.vue'
 import Button from '@/components/ui/Button.vue'
+import ModalWindow from '@/components/header/ModalWindow.vue'
 
 import { useRoute } from 'vue-router'
 import { computed, ref, watch } from 'vue'
-import ModalWindow from '@/components/header/ModalWindow.vue'
 
 interface Menu {
   id: number
