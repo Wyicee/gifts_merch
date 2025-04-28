@@ -46,6 +46,7 @@ const emit = defineEmits<{
     padding: 10px 16px;
     border-radius: $bor-radius-90;
     border: 4px solid $dark-color;
+    background: none;
 
     @include laptop {
       border: 2px solid $dark-color;

@@ -13,25 +13,21 @@
 
 <style scoped lang="scss">
 .popular {
-  margin-top: -130px;
-  padding-top: 130px;
   position: relative;
-  z-index: 100;
-
-  @include tablet {
-    margin: 0;
-    padding-top: 100px;
-  }
+  z-index: 0;
+  margin-top: 100px;
 
   &::before {
     content: '';
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    inset: -150px 0 0 0;
     background: url('@/assets/images/popular/bg.png') no-repeat;
     background-size: cover;
-    z-index: -100;
+    z-index: -1;
+
+    @include tablet {
+      inset-block: -50px 0;
+    }
   }
 
   &__body {

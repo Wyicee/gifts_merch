@@ -151,6 +151,7 @@ watch(
     }
 
     &-input {
+      background-color: initial;
       width: 100%;
     }
 

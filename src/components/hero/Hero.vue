@@ -14,9 +14,8 @@ const preferencesList = [
     <div class="hero__body container">
       <h2 class="hero__body-title">Свежее дыхание в корпоративной жизни</h2>
       <p class="hero__body-description">
-        Ми вдосконалили процес замовлення продукції для того, щоб Ви і Ваша компанія
-        сконцентрувались на основних задачах<br />
-        і досягали поставлених цілей.
+        Мы усовершенствовали процесс заказа продукции для того, чтобы вы и ваша компания
+        сконцентрировались на основных задачах и достигали поставленных целей.
       </p>
       <div class="hero__body-preferences">
         <div
@@ -41,17 +40,21 @@ const preferencesList = [
 
 <style scoped lang="scss">
 .hero {
-  background: url('@/assets/images/hero/bg.png') no-repeat;
-  background-size: cover;
   position: relative;
-  z-index: 1;
+  z-index: 0;
+  overflow: hidden;
 
-  @include tablet {
-    background-size: contain;
-  }
-
-  @include mobile {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 -180px 0;
+    background: url('@/assets/images/hero/bg.png') no-repeat;
     background-size: cover;
+    z-index: 0;
+
+    @include tablet {
+      inset-block: 0 90px;
+    }
   }
 
   &__body {
@@ -63,6 +66,7 @@ const preferencesList = [
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     column-gap: 39px;
+    position: relative;
 
     @include tablet {
       grid-template-areas:
@@ -123,7 +127,8 @@ const preferencesList = [
         grid-column: -1 / 1;
         justify-self: center;
         column-gap: 74px;
-        margin-top: 100px;
+        padding-block: 70px 0;
+        margin-top: 120px;
       }
 
       @include mobile {
@@ -142,6 +147,10 @@ const preferencesList = [
         text-align: center;
         white-space: pre-wrap;
 
+        @include laptop {
+          font-size: 18px;
+        }
+
         @include tablet {
           font-size: 16px;
         }
@@ -150,9 +159,16 @@ const preferencesList = [
 
     &-image {
       grid-area: image;
+      margin-bottom: -100px;
+      position: relative;
+      z-index: -1;
 
       @include laptop {
-        margin-bottom: -100px;
+        margin-bottom: -180px;
+      }
+
+      @include tablet {
+        margin-bottom: -310px;
       }
     }
   }
