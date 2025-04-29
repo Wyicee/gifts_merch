@@ -5,16 +5,15 @@ import Form from '@/components/ui/Form.vue'
 
 import { useWindowSize } from '@vueuse/core'
 
-import { computed, ref, watchEffect } from 'vue'
+import { computed } from 'vue'
 
 const { width } = useWindowSize()
-const isDesktop = ref<boolean | null>(null)
 
-watchEffect(() => {
-  isDesktop.value = width.value >= 1023.98
-})
+const isDesktop = computed(() => width.value >= 1023.98)
 
-const formText = computed(() => (isDesktop.value ? 'в течение 1 часа' : 'в течение 15 минут'))
+const formText = computed(() =>
+  width.value >= 1023.98 ? 'в течение 1 часа' : 'в течение 15 минут',
+)
 </script>
 
 <template>

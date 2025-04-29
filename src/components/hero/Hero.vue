@@ -41,7 +41,6 @@ const preferencesList = [
 <style scoped lang="scss">
 .hero {
   position: relative;
-  z-index: 0;
   overflow: hidden;
 
   &::before {
@@ -50,7 +49,7 @@ const preferencesList = [
     inset: 0 0 -180px 0;
     background: url('@/assets/images/hero/bg.png') no-repeat;
     background-size: cover;
-    z-index: 0;
+    z-index: -1;
 
     @include tablet {
       inset-block: 0 90px;
@@ -99,6 +98,7 @@ const preferencesList = [
       }
 
       @include mobile {
+        font-size: 24px;
         max-width: 363px;
       }
     }
@@ -113,6 +113,10 @@ const preferencesList = [
 
       @include tablet {
         font-size: 16px;
+      }
+
+      @include mobile {
+        max-width: 385px;
       }
     }
 
@@ -134,6 +138,7 @@ const preferencesList = [
       @include mobile {
         flex-direction: column;
         justify-self: start;
+        row-gap: 20px;
         margin: 0;
         padding-block: 33px 0;
       }
@@ -169,6 +174,11 @@ const preferencesList = [
 
       @include tablet {
         margin-bottom: -310px;
+      }
+
+      @include mobile {
+        transform: scale(-1, 1);
+        margin: 0;
       }
     }
   }

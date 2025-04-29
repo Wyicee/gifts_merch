@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="order">
     <div class="order__body container">
@@ -99,7 +97,6 @@
       &-item {
         display: flex;
         align-items: center;
-        flex: 1 1 0;
         max-width: 133px;
         width: 100%;
         aspect-ratio: 1 / 1;
