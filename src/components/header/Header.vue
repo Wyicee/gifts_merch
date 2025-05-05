@@ -4,12 +4,17 @@ import Button from '@/components/ui/Button.vue'
 import ModalWindow from '@/components/header/ModalWindow.vue'
 
 import { useRoute } from 'vue-router'
-import { computed, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 
 interface Menu {
   id: number
   name: string
   path: string
+}
+
+interface Languages {
+  id: number
+  lang: string
 }
 
 const route = useRoute()
@@ -22,28 +27,21 @@ const menuNames: Menu[] = [
   { id: 5, name: 'Информация', path: '/5' },
 ]
 
+const lang: Languages[] = [
+  { id: 1, lang: 'RU' },
+  { id: 2, lang: 'ENG' },
+]
+
+const activeLang = ref<number | null>(1)
 const isOpen = ref(false)
-const currentLang = ref<'ru' | 'eng'>('ru')
 
-const isDisabled = computed(() => ({
-  ru: currentLang.value === 'ru',
-  eng: currentLang.value === 'eng',
-}))
-
-const handleClick = () => {
-  if (currentLang.value === 'ru') {
-    currentLang.value = 'eng'
-  } else {
-    currentLang.value = 'ru'
-  }
+const handleCLick = (id: number) => {
+  activeLang.value = activeLang.value === id ? null : id
 }
 
-watch(
-  () => isOpen.value,
-  (newValue: boolean) => {
-    document.documentElement.classList.toggle('is-lock', newValue)
-  },
-)
+watch(isOpen, (newValue: boolean) => {
+  document.documentElement.classList.toggle('is-lock', newValue)
+})
 </script>
 
 <template>
@@ -78,12 +76,14 @@ watch(
           <img src="@/assets/icons/header/profile.svg" alt="" width="40" height="40" />
         </router-link>
         <div class="header__main-tab-lang">
-          <Button :disabled="isDisabled.ru" mods="transparent" @update:modelValue="handleClick"
-            >RU
-          </Button>
-          /
-          <Button :disabled="isDisabled.eng" mods="transparent" @update:modelValue="handleClick">
-            ENG
+          <Button
+            mods="transparent"
+            :disabled="activeLang === item.id"
+            @update:modelValue="handleCLick(item.id)"
+            v-for="item in lang"
+            :key="item.id"
+          >
+            {{ item.lang }}
           </Button>
         </div>
       </div>
@@ -195,6 +195,13 @@ watch(
           display: flex;
           column-gap: 2px;
           align-items: center;
+
+          &:first-child {
+            &::after {
+              content: '/';
+              margin-left: 5px;
+            }
+          }
 
           &:disabled {
             color: $dark-color;
