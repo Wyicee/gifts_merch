@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 import type { LogosProps } from '@/types/logosProps.ts'
 
-export const useFooStore = defineStore('store', {
+export const useLogosStore = defineStore('logos', {
   state: () => ({
     LogosList: [
       {

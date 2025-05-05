@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Swiper from '@/components/swiper/Swiper.vue'
 
-import { useFooStore } from '@/stores/counter.ts'
+import { useLogosStore } from '@/stores/logos'
 
-const { LogosList } = useFooStore()
+const { LogosList } = useLogosStore()
 </script>
 
 <template>
