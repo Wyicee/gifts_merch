@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import Button from '@/components/ui/Button.vue'
 
+import { computed } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize()
@@ -11,11 +12,18 @@ const isDesktop = computed(() => width.value >= 767.98)
 <template>
   <div class="popular">
     <div class="popular__body container">
-      <h2 class="popular__body-title">Самое популярное</h2>
+      <h2 class="popular__body-title">
+        Самое популярное
+        <span class="popular__body-title-star"></span>
+      </h2>
       <span class="popular__body-star"></span>
       <p class="popular__body-description">
         Товары, которые наиболее часто заказывают наши клиенты
       </p>
+      <Button class="popular__body-button" mods="transparent">
+        Все товары
+        <span class="popular__body-button-arrow-right"></span>
+      </Button>
       <div class="popular__body-collage">
         <figure class="popular__body-collage-item">
           <img src="@/assets/images/popular/1.jpg" alt="" />
@@ -54,7 +62,44 @@ const isDesktop = computed(() => width.value >= 767.98)
   }
 
   &__body {
+    display: grid;
+    grid-template-areas:
+      'title button'
+      'description button'
+      'collage collage';
+    grid-template-columns: 1fr auto;
+
+    @include mobile-s {
+      grid-template-areas:
+        'title title'
+        'description description'
+        'collage collage'
+        'button button';
+    }
+
     &-title {
+      grid-area: title;
+      position: relative;
+
+      &-star {
+        &::after {
+          content: '';
+          background: url('@/assets/icons/popular/star-green.svg') no-repeat center / cover;
+          width: 32px;
+          height: 31px;
+          margin-left: 28px;
+          position: absolute;
+          bottom: 27px;
+
+          @include mobile {
+            width: 21px;
+            height: 21px;
+            margin-left: 18px;
+            bottom: 15px;
+          }
+        }
+      }
+
       @include mobile {
         font-size: 28px;
       }
@@ -65,6 +110,7 @@ const isDesktop = computed(() => width.value >= 767.98)
     }
 
     &-description {
+      grid-area: description;
       line-height: 130%;
       letter-spacing: 0.07em;
       text-transform: lowercase;
@@ -78,7 +124,29 @@ const isDesktop = computed(() => width.value >= 767.98)
       }
     }
 
+    &-button {
+      grid-area: button;
+
+      @include mobile {
+        display: none !important;
+      }
+
+      @include mobile-s {
+        display: block !important;
+        justify-self: end;
+        padding-top: 17px;
+      }
+
+      &-arrow-right {
+        &::after {
+          content: url('@/assets/icons/popular/arrow-right-icon.svg');
+          margin-left: 20px;
+        }
+      }
+    }
+
     &-collage {
+      grid-area: collage;
       display: grid;
       grid-template-columns: 5fr 1fr 1fr;
       grid-template-rows: auto auto;

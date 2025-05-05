@@ -152,6 +152,15 @@ const preferencesList = [
         text-align: center;
         white-space: pre-wrap;
 
+        img {
+          max-width: 109px;
+          width: 100%;
+
+          @include mobile {
+            max-width: 71px;
+          }
+        }
+
         @include laptop {
           font-size: 18px;
         }

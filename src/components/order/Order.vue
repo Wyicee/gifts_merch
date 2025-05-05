@@ -46,10 +46,12 @@
     }
 
     &-image {
+      height: 532px;
       border-radius: $bor-radius-15;
       box-shadow:
         0 8px 8px -4px rgba(26, 32, 44, 0.04),
         0 16px 20px -4px rgba(26, 32, 44, 0.1);
+      object-fit: none;
     }
 
     &-wrapper {
