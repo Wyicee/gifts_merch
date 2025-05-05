@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Form from '@/components/ui/Form.vue'
 import Input from '@/components/ui/Input.vue'
+import bemCn from 'bem-cn-lite'
 
 const socialsList = [
   { id: 1, img: 'src/assets/icons/footer/facebook.svg', href: 'https://www.facebook.com' },
@@ -20,74 +21,36 @@ const informationCol = [
   { id: 2, name: 'ЧаВо' },
   { id: 3, name: 'Контакты' },
 ]
+
+const b = bemCn('footer')
 </script>
 
 <template>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__body">
-        <div class="footer__body-info">
-          <div class="footer__body-info-column-mobile">
-            <img
-              class="footer__body-info-logo"
-              src="@/assets/icons/logo.svg"
-              alt=""
-              width="489"
-              height="40"
-            />
-            <p class="footer__body-info-description">
-              Свежее дыхание в корпоративной жизни и жизни корпоративной дыхание свежее
-            </p>
-          </div>
-          <div class="footer__body-info-column-mobile">
-            <div class="footer__body-info-contacts">
-              <a href="tel:+380630130103" class="footer__body-info-contacts-tel">
-                +380 630 130 103
-              </a>
-              <a href="mailto:example@gmail.com" class="footer__body-info-contacts-email">
-                example@gmail.com
-              </a>
-            </div>
-            <div class="footer__body-info-soc1als">
-              <a
-                class="footer__body-info-soc1als-item"
-                target="_blank"
-                v-for="item in socialsList"
-                :key="item.id"
-                :href="item.href"
-                ><img :src="item.img" alt="" width="25" height="25"
-              /></a>
-            </div>
-          </div>
+  <footer :class="b()">
+    <div :class="[b('body'), 'container']">
+      <div :class="b('body-info')">
+        <div :class="b('body-info-column-mobile')">
+          <img
+            :class="b('body-info-logo')"
+            src="@/assets/icons/logo.svg"
+            alt=""
+            width="489"
+            height="40"
+          />
+          <p :class="b('body-info-description')">
+            Свежее дыхание в корпоративной жизни и жизни корпоративной дыхание свежее
+          </p>
         </div>
-        <ul class="footer__body-list">
-          <li class="footer__body-list-item-title">Категории</li>
-          <li class="footer__body-list-item" v-for="item in categoriesCol" :key="item.id">
-            <router-link to="" class="footer__body-list-item-link">
-              {{ item.name }}
-            </router-link>
-          </li>
-        </ul>
-        <ul class="footer__body-list">
-          <li class="footer__body-list-item-title">Информация</li>
-          <li class="footer__body-list-item" v-for="item in informationCol" :key="item.id">
-            <router-link to="" class="footer__body-list-item-link">
-              {{ item.name }}
-            </router-link>
-          </li>
-        </ul>
-        <div class="footer__body-column-mobile">
-          <div class="footer__body-info-contacts">
-            <a href="tel:+380630130103" class="footer__body-info-contacts-tel">
-              +380 630 130 103
-            </a>
-            <a href="mailto:example@gmail.com" class="footer__body-info-contacts-email">
+        <div :class="b('body-info-column-mobile')">
+          <div :class="b('body-info-contacts')">
+            <a href="tel:+380630130103" :class="b('body-info-contacts-tel')"> +380 630 130 103 </a>
+            <a href="mailto:example@gmail.com" :class="b('body-info-contacts-email')">
               example@gmail.com
             </a>
           </div>
-          <div class="footer__body-info-soc1als">
+          <div :class="b('body-info-soc1als')">
             <a
-              class="footer__body-info-soc1als-item"
+              :class="b('body-info-soc1als-item')"
               target="_blank"
               v-for="item in socialsList"
               :key="item.id"
@@ -96,26 +59,61 @@ const informationCol = [
             /></a>
           </div>
         </div>
-        <div class="footer__body-form">
-          <Form direction="column">
-            <h4 class="footer__body-form-title">Связаться с менеджером</h4>
-            <p class="footer__body-form-description">
-              Есть вопрос на который не нашли ответ?<br />
-              Оставьте контакт и наш менеджер свяжеться с вами
-            </p>
-            <Input
-              class="footer__body-form-input"
-              mods="footer"
-              type="tel"
-              placeholder="Номер телефона"
-            />
-          </Form>
+      </div>
+      <ul :class="b('body-list')">
+        <li :class="b('body-list-item-title')">Категории</li>
+        <li :class="b('body-list-item')" v-for="item in categoriesCol" :key="item.id">
+          <router-link to="" :class="b('body-list-item-link')">
+            {{ item.name }}
+          </router-link>
+        </li>
+      </ul>
+      <ul :class="b('body-list')">
+        <li :class="b('body-list-item-title')">Информация</li>
+        <li :class="b('body-list-item')" v-for="item in informationCol" :key="item.id">
+          <router-link to="" :class="b('body-list-item-link')">
+            {{ item.name }}
+          </router-link>
+        </li>
+      </ul>
+      <div :class="b('body-column-mobile')">
+        <div :class="b('body-info-contacts')">
+          <a href="tel:+380630130103" :class="b('body-info-contacts-tel')"> +380 630 130 103 </a>
+          <a href="mailto:example@gmail.com" :class="b('body-info-contacts-email')">
+            example@gmail.com
+          </a>
+        </div>
+        <div :class="b('body-info-soc1als')">
+          <a
+            :class="b('body-info-soc1als-item')"
+            target="_blank"
+            v-for="item in socialsList"
+            :key="item.id"
+            :href="item.href"
+          >
+            <img :src="item.img" alt="" width="25" height="25" />
+          </a>
         </div>
       </div>
-      <div class="footer__body-copyright">
-        <p>© 2022. All rights reserved.</p>
-        <router-link to="">Политика конфиденциальности</router-link>
+      <div :class="b('body-form')">
+        <Form direction="column">
+          <h4 :class="b('body-form-title')">Связаться с менеджером</h4>
+          <p :class="b('body-form-description')">
+            Есть вопрос на который не нашли ответ?<br />
+            Оставьте контакт и наш менеджер свяжеться с вами
+          </p>
+          <Input
+            :class="b('body-form-input')"
+            mods="footer"
+            type="tel"
+            placeholder="Номер телефона"
+          />
+        </Form>
       </div>
+    </div>
+    <div :class="b('body-copyright')">
+      <p>© 2022. All rights reserved.</p>
+      <router-link to="">Политика конфиденциальности</router-link>
     </div>
   </footer>
 </template>

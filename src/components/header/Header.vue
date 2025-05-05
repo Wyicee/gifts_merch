@@ -2,6 +2,7 @@
 import Input from '@/components/ui/Input.vue'
 import Button from '@/components/ui/Button.vue'
 import ModalWindow from '@/components/header/ModalWindow.vue'
+import bemCn from 'bem-cn-lite'
 
 import { useRoute } from 'vue-router'
 import { ref, watch } from 'vue'
@@ -42,19 +43,21 @@ const handleCLick = (id: number) => {
 watch(isOpen, (newValue: boolean) => {
   document.documentElement.classList.toggle('is-lock', newValue)
 })
+
+const b = bemCn('header')
 </script>
 
 <template>
-  <div class="header">
-    <div class="header__main container">
-      <img class="header__main-logo" src="@/assets/icons/logo.svg" alt="" width="489" height="40" />
+  <div :class="b()">
+    <div :class="[b('main'), 'container']">
+      <img :class="b('main-logo')" src="@/assets/icons/logo.svg" alt="" width="489" height="40" />
       <Input
-        class="header__main-input hidden-tablet"
+        :class="[b('main-input'), 'hidden-tablet']"
         mods="header"
         type="search"
         placeholder="Поиск"
       />
-      <Button class="header__main-search visible-tablet" mods="transparent">
+      <Button :class="[b('main-search'), 'visible-tablet']" mods="transparent">
         <svg
           width="22"
           height="22"
@@ -70,16 +73,16 @@ watch(isOpen, (newValue: boolean) => {
           />
         </svg>
       </Button>
-      <Button class="header__main-button" mods="default">+380 630 130 103</Button>
-      <div class="header__main-tab hidden-mobile">
-        <router-link class="header__main-tab-profile" to="">
+      <Button :class="b('main-button')" mods="default">+380 630 130 103</Button>
+      <div :class="[b('main-tab'), 'hidden-mobile']">
+        <router-link :class="b('main-tab-profile')" to="">
           <img src="@/assets/icons/header/profile.svg" alt="" width="40" height="40" />
         </router-link>
-        <div class="header__main-tab-lang">
+        <div :class="b('main-tab-lang')">
           <Button
             mods="transparent"
-            :disabled="activeLang === item.id"
             @update:modelValue="handleCLick(item.id)"
+            :disabled="activeLang === item.id"
             v-for="item in lang"
             :key="item.id"
           >
@@ -88,35 +91,34 @@ watch(isOpen, (newValue: boolean) => {
         </div>
       </div>
       <div
-        class="header__main-burger visible-mobile"
+        :class="[b('main-burger'), 'visible-mobile']"
         aria-label="Open menu"
         title="Open menu"
         @click="isOpen = true"
       >
-        <span class="header__main-burger-line"></span>
-        <span class="header__main-burger-line"></span>
-        <span class="header__main-burger-line"></span>
+        <span :class="b('main-burger-line')"></span>
+        <span :class="b('main-burger-line')"></span>
+        <span :class="b('main-burger-line')"></span>
       </div>
     </div>
-    <div class="header__body-background">
-      <div class="header__body container">
-        <nav class="header__body-menu">
-          <ul class="header__body-menu-list">
-            <li class="header__body-menu-list-item" v-for="item in menuNames" :key="item.id">
+    <div :class="b('body-background')">
+      <div :class="[b('body'), 'container']">
+        <nav :class="b('body-menu')" class="header__body-menu">
+          <ul :class="b('body-menu-list')">
+            <li :class="b('body-menu-list-item')" v-for="item in menuNames" :key="item.id">
               <router-link
-                class="header__body-menu-list-item-link"
+                :class="b('body-menu-list-item-link', { 'is-active': route.path === item.path })"
                 to="/"
-                :class="{ 'is-active': route.path === item.path }"
               >
                 {{ item.name }}
               </router-link>
             </li>
           </ul>
         </nav>
-        <div class="header__body-promo">
-          <h3 class="header__body-promo-title">Шопперы со скидкой - 25%</h3>
+        <div :class="b('body-promo')">
+          <h3 :class="b('body-promo-title')">Шопперы со скидкой - 25%</h3>
         </div>
-        <div class="header__body-background-banner"></div>
+        <div :class="b('body-background-banner')"></div>
       </div>
     </div>
   </div>

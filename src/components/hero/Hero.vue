@@ -1,23 +1,26 @@
 <script setup lang="ts">
 import Header from '@/components/header/Header.vue'
+import bemCn from 'bem-cn-lite'
 
 const preferencesList = [
   `Высокое\n качество <strong>ONLY</strong>`,
   `Поддержка\n менеджера <strong>24/7</strong>`,
   `Выполнение заказа\n в <strong>TURBO-режиме</strong>`,
 ]
+
+const b = bemCn('hero')
 </script>
 
 <template>
-  <div class="hero">
+  <div :class="b()">
     <Header />
-    <div class="hero__body container">
-      <h2 class="hero__body-title">Свежее дыхание в корпоративной жизни</h2>
-      <p class="hero__body-description">
+    <div :class="[b('body'), 'container']">
+      <h2 :class="b('body-title')">Свежее дыхание в корпоративной жизни</h2>
+      <p :class="b('body-description')">
         Мы усовершенствовали процесс заказа продукции для того, чтобы вы и ваша компания
         сконцентрировались на основных задачах и достигали поставленных целей.
       </p>
-      <div class="hero__body-preferences">
+      <div :class="b('body-preferences')">
         <div
           class="hero__body-preferences-item"
           v-for="(item, index) in preferencesList"
@@ -28,7 +31,7 @@ const preferencesList = [
         </div>
       </div>
       <img
-        class="hero__body-image"
+        :class="b('body-image')"
         src="@/assets/images/hero/bg-girls.png"
         alt="girls"
         width="785"

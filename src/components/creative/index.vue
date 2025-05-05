@@ -1,3 +1,14 @@
+<script setup lang="ts">
+import Button from '@/components/ui/Button.vue'
+import bemCn from 'bem-cn-lite'
+
+defineOptions({
+  name: 'gm-creative',
+})
+
+const b = bemCn('gm-creative')
+</script>
+
 <template>
   <div :class="b()">
     <div :class="[b('body'), 'container']">
@@ -31,17 +42,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import Button from '@/components/ui/Button.vue'
-import bemCn from 'bem-cn-lite'
-
-defineOptions({
-  name: 'gm-creative',
-})
-
-const b = bemCn('gm-creative')
-</script>
 
 <style scoped lang="scss">
 

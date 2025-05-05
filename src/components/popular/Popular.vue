@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
+import bemCn from 'bem-cn-lite'
 
 import { computed } from 'vue'
 import { useWindowSize } from '@vueuse/core'
@@ -7,25 +8,24 @@ import { useWindowSize } from '@vueuse/core'
 const { width } = useWindowSize()
 
 const isDesktop = computed(() => width.value >= 767.98)
+
+const b = bemCn('popular')
 </script>
 
 <template>
-  <div class="popular">
-    <div class="popular__body container">
-      <h2 class="popular__body-title">
+  <div :class="b()">
+    <div :class="[b('body'), 'container']">
+      <h2 :class="b('body-title')">
         Самое популярное
-        <span class="popular__body-title-star"></span>
+        <span :class="b('body-title-star')"></span>
       </h2>
-      <span class="popular__body-star"></span>
-      <p class="popular__body-description">
-        Товары, которые наиболее часто заказывают наши клиенты
-      </p>
-      <Button class="popular__body-button" mods="transparent">
+      <p :class="b('body-description')">Товары, которые наиболее часто заказывают наши клиенты</p>
+      <Button :class="b('body-button')" mods="transparent">
         Все товары
-        <span class="popular__body-button-arrow-right"></span>
+        <span :class="b('body-button-arrow-right')"></span>
       </Button>
-      <div class="popular__body-collage">
-        <figure class="popular__body-collage-item">
+      <div :class="b('body-collage')">
+        <figure :class="b('body-collage-item')">
           <img src="@/assets/images/popular/1.jpg" alt="" />
           <figcaption v-if="isDesktop">
             <p>Шопперы</p>

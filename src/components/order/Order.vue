@@ -1,24 +1,30 @@
+<script setup lang="ts">
+import bemCn from 'bem-cn-lite'
+
+const b = bemCn('order')
+</script>
+
 <template>
-  <div class="order">
-    <div class="order__body container">
+  <div :class="b()">
+    <div :class="[b('body'), 'container']">
       <img
-        class="order__body-image"
+        :class="b('body-image')"
         src="@/assets/images/order/image.jpg"
         alt="mockup design sweater"
         width="753"
         height="532"
       />
-      <div class="order__body-wrapper">
-        <h3 class="order__body-title">
+      <div :class="b('body-wrapper')">
+        <h3 :class="b('body-title')">
           Помимо готовой продукции высокого качества, мы можем для Вас произвести одежду, аксессуры,
           вкусности и другое под заказ.
         </h3>
-        <p class="order__body-description">
+        <p :class="b('body-description')">
           Благодаря личному производству мы изготавливаем большие партии в короткие сроки, а так же
           у Вас всегда есть возможность кастомизировать изделия.
         </p>
-        <div class="order__body-circles">
-          <div class="order__body-circles-item" v-for="n in 4" :key="n">
+        <div :class="b('body-circles')">
+          <div :class="b('body-circles-item')" v-for="n in 4" :key="n">
             <img src="@/assets/images/order/1.png" alt="" />
           </div>
         </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
+import bemCn from 'bem-cn-lite'
 
 import { ref } from 'vue'
 
@@ -29,6 +30,7 @@ const socialsList = [
 
 const emit = defineEmits<{
   closeModal: []
+  toggleLang: []
 }>()
 
 const activeItemId = ref<number>(1)
@@ -36,28 +38,30 @@ const activeItemId = ref<number>(1)
 const handleClick = (id: number) => {
   activeItemId.value = activeItemId.value === id ? 0 : id
 }
+
+const b = bemCn('window')
 </script>
 
 <template>
-  <div class="window">
-    <div class="window__body">
-      <div class="window__body-tabs">
-        <div class="window__body-tabs-lang">
+  <div :class="b()">
+    <div :class="b('body')">
+      <div :class="b('body-tabs')">
+        <div :class="b('body-tabs-lang')">
           <Button disabled mods="transparent">RU</Button>
           /
           <Button mods="transparent">ENG</Button>
         </div>
-        <router-link class="window__body-tabs-profile" to="">
+        <router-link :class="b('body-tabs-profile')" to="">
           <img src="@/assets/icons/header/profile.svg" alt="" width="40" height="40" />
         </router-link>
-        <Button class="window__body-tabs-close" mods="transparent" @click.esc="emit('closeModal')">
+        <Button :class="b('body-tabs-close')" mods="transparent" @click.esc="emit('closeModal')">
           <img src="@/assets/icons/header/close.svg" alt="" />
         </Button>
       </div>
-      <ul class="window__body-list">
-        <li class="window__body-list-item" v-for="item in routingList" :key="item.id">
+      <ul :class="b('body-list')">
+        <li :class="b('body-list-item')" v-for="item in routingList" :key="item.id">
           <router-link
-            :class="{ 'is-active': activeItemId === item.id }"
+            :class="b('body-list-item-link', { 'is-active': activeItemId === item.id })"
             @click="handleClick(item.id)"
             to=""
           >
@@ -65,13 +69,13 @@ const handleClick = (id: number) => {
           </router-link>
         </li>
       </ul>
-      <div class="window__body-contacts">
+      <div :class="b('body-contacts')">
         <a href="mailto:example@gmail.com">example@gmail.com</a>
-        <Button class="header__main-button" mods="default">+380 630 130 103</Button>
+        <Button :class="b('body-main-button')" mods="default">+380 630 130 103</Button>
       </div>
-      <ul class="window__body-socials">
-        <li class="window__body-socials-item" v-for="item in socialsList" :key="item.id">
-          <a class="footer__body-info-soc1als-item" target="_blank" :href="item.href">
+      <ul :class="b('body-socials')">
+        <li :class="b('body-socials')" v-for="item in socialsList" :key="item.id">
+          <a :class="b('body-socials-item')" target="_blank" :href="item.href">
             <img :src="item.img" alt="" width="25" height="25" />
           </a>
         </li>

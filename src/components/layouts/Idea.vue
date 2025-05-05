@@ -2,6 +2,7 @@
 import Input from '@/components/ui/Input.vue'
 import Button from '@/components/ui/Button.vue'
 import Form from '@/components/ui/Form.vue'
+import bemCn from 'bem-cn-lite'
 
 import { useWindowSize } from '@vueuse/core'
 
@@ -14,50 +15,52 @@ const isDesktop = computed(() => width.value >= 1023.98)
 const formText = computed(() =>
   width.value >= 1023.98 ? 'в течение 1 часа' : 'в течение 15 минут',
 )
+
+const b = bemCn('idea')
 </script>
 
 <template>
-  <div class="idea">
-    <div class="idea__body container">
-      <div class="idea__body-column">
-        <h3 class="idea__body-title">У вас своя УНИКАЛЬНАЯ идея по разработке мерча?</h3>
-        <p class="idea__body-description">
+  <div :class="b()">
+    <div :class="[b('body'), 'container']">
+      <div :class="b('body-column')">
+        <h3 :class="b('body-title')">У вас своя УНИКАЛЬНАЯ идея по разработке мерча?</h3>
+        <p :class="b('body-description')">
           Изготовим мерч по вашему дизайну. Расскажем лайфхаки и ознакомим с технологией
           производства, предоставим образцы матералов.
         </p>
       </div>
-      <h4 class="idea__body-subtitle">
+      <h4 :class="b('body-subtitle')">
         Введите свои контактные данные, и наш менеджер свяжется с Вами
         <span :class="{ 'text-decoration': !isDesktop }"
           ><br v-if="!isDesktop" />{{ formText }}</span
         >
       </h4>
-      <div class="idea__body-column">
+      <div :class="b('body-column')">
         <img
-          class="idea__body-lamp"
+          :class="b('body-lamp')"
           src="@/assets/images/idea/lamp.png"
           alt=""
           width="432"
           height="422"
         />
-        <div class="idea__body-rocket"></div>
-        <div class="idea__body-curve"></div>
+        <div :class="b('body-rocket')"></div>
+        <div :class="b('body-curve')"></div>
       </div>
-      <Form class="idea__body-form">
-        <Input class="idea__body-form-input" type="text" mods="idea" placeholder="Ваше Имя" />
+      <Form :class="b('body-form')">
+        <Input :class="b('body-form-input')" type="text" mods="idea" placeholder="Ваше Имя" />
         <Input
-          class="idea__body-form-input"
+          :class="b('body-form-input')"
           type="email"
           mods="idea"
           placeholder="Ваша електронная почта"
         />
         <Input
-          class="idea__body-form-input"
+          :class="b('body-form-input')"
           type="tel"
           mods="idea"
           placeholder="Ваш номер телефона"
         />
-        <Button class="idea__body-form-button" mods="default" type="submit">Заказать</Button>
+        <Button :class="b('body-form-button')" mods="default" type="submit">Заказать</Button>
       </Form>
     </div>
   </div>
