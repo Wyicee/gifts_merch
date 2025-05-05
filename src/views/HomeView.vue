@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Hero from '@/components/hero/Hero.vue'
 import Popular from '@/components/popular/Popular.vue'
-import Creative from '@/components/creative/Creative.vue'
+import GmCreative from '@/components/creative/index.vue'
 import Order from '@/components/order/Order.vue'
 import Idea from '@/components/layouts/Idea.vue'
 import Collab from '@/components/layouts/Collab.vue'
@@ -10,7 +10,7 @@ import Collab from '@/components/layouts/Collab.vue'
 <template>
   <Hero />
   <Popular />
-  <Creative />
+  <gm-creative />
   <Order />
   <Idea />
   <Collab />

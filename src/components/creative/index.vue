@@ -1,32 +1,28 @@
-<script setup lang="ts">
-import Button from '@/components/ui/Button.vue'
-</script>
-
 <template>
-  <div class="creative">
-    <div class="creative__body container">
-      <div class="creative__body-wrapper">
+  <div :class="b()">
+    <div :class="[b('body'), 'container']">
+      <div :class="b('body-wrapper')">
         <img
-          class="creative__body-word"
+          :class="b('body-word')"
           src="@/assets/images/creative/creative.png"
           alt="CREATIVE-WORD-OMG"
           width="299"
           height="64"
         />
-        <h2 class="creative__body-title">
+        <h2 :class="b('body-title')">
           Хотите удивить ваших коллег/партнеров необычными подарками?
         </h2>
-        <p class="creative__body-description">
+        <p :class="b('body-description')">
           Выбирайте готовые подарочные наборы или укажите<br />
           критерии по которым мы соберем для Вас уникальный бокс.
         </p>
-        <div class="creative__body-buttons">
+        <div :class="b('body-buttons')">
           <Button mods="default">Перейти к наборам</Button>
           <Button mods="default">Создать свой</Button>
         </div>
       </div>
       <img
-        class="creative__body-image"
+        :class="b('body-image')"
         src="@/assets/images/creative/image.png"
         alt=""
         width="722"
@@ -36,8 +32,20 @@ import Button from '@/components/ui/Button.vue'
   </div>
 </template>
 
+<script setup lang="ts">
+import Button from '@/components/ui/Button.vue'
+import bemCn from 'bem-cn-lite'
+
+defineOptions({
+  name: 'gm-creative',
+})
+
+const b = bemCn('gm-creative')
+</script>
+
 <style scoped lang="scss">
-.creative {
+
+.gm-creative {
   background: url('@/assets/images/creative/bg.png') no-repeat;
   background-size: cover;
   overflow: hidden;
