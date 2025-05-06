@@ -3,30 +3,16 @@ import Button from '@/components/ui/Button.vue';
 import bemCn from 'bem-cn-lite';
 
 import { ref } from 'vue';
+import { useListStore } from "~/stores/list";
 
-interface List {
-  id: number;
-  name: string;
-}
+const { footer, header } = useListStore();
 
-const routingList: List[] = [
-  { id: 1, name: 'Толстовки' },
-  { id: 2, name: 'Бананки' },
-  { id: 3, name: 'Свитшоты' },
-  { id: 4, name: 'Эко-сумки/\nШопперы' },
-  { id: 5, name: 'Футболки' },
-  { id: 6, name: 'Пледы' },
-  { id: 7, name: 'Поло' },
-  { id: 8, name: 'Носки' },
-  { id: 9, name: 'Жилетки' },
-  { id: 10, name: 'Маски' },
-  { id: 11, name: 'Рюкзаки' },
-];
-const socialsList = [
-  { id: 1, img: '/icons/footer/facebook.svg', href: 'https://www.facebook.com' },
-  { id: 2, img: '/icons/footer/instagram.svg', href: 'https://www.instagram.com' },
-  { id: 3, img: '/icons/footer/linkedin.svg', href: 'https://www.linkedin.com' },
-];
+// ЧТОБЫ ДВА РАЗА НЕ СОЗДАВАТЬ SAME МАССИВ, Я ВЗЯЛ ИЗ FOOTER
+const socialsList = footer.flatMap(list => list.socials);
+
+const routingList = header
+    .flatMap(list => list.modalWindow)
+    .flatMap(modalList => modalList.routing);
 
 const emit = defineEmits<{
   closeModal: []

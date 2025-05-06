@@ -3,24 +3,13 @@ import Form from '@/components/ui/Form.vue';
 import Input from '@/components/ui/Input.vue';
 import bemCn from 'bem-cn-lite';
 
-const socialsList = [
-  { id: 1, img: '/icons/footer/facebook.svg', href: 'https://www.facebook.com' },
-  { id: 2, img: '/icons/footer/instagram.svg', href: 'https://www.instagram.com' },
-  { id: 3, img: '/icons/footer/linkedin.svg', href: 'https://www.linkedin.com' }
-];
+import { useListStore } from "~/stores/list";
 
-const categoriesCol = [
-  { id: 1, name: 'Пошив' },
-  { id: 2, name: 'Все товары' },
-  { id: 3, name: 'Наборы' },
-  { id: 4, name: 'Производство' }
-];
+const { footer } = useListStore()
 
-const informationCol = [
-  { id: 1, name: 'О нас' },
-  { id: 2, name: 'ЧаВо' },
-  { id: 3, name: 'Контакты' }
-];
+const socialsList = footer.flatMap(list => list.socials)
+const categoriesList = footer.flatMap(list => list.categories)
+const informationList = footer.flatMap(list => list.information)
 
 const b = bemCn('footer');
 </script>
@@ -63,7 +52,7 @@ const b = bemCn('footer');
       </div>
       <ul :class="b('body-list')">
         <li :class="b('body-list-item-title')">Категории</li>
-        <li v-for="item in categoriesCol" :key="item.id" :class="b('body-list-item')">
+        <li v-for="item in categoriesList" :key="item.id" :class="b('body-list-item')">
           <router-link to="" :class="b('body-list-item-link')">
             {{ item.name }}
           </router-link>
@@ -71,7 +60,7 @@ const b = bemCn('footer');
       </ul>
       <ul :class="b('body-list')">
         <li :class="b('body-list-item-title')">Информация</li>
-        <li v-for="item in informationCol" :key="item.id" :class="b('body-list-item')">
+        <li v-for="item in informationList" :key="item.id" :class="b('body-list-item')">
           <router-link to="" :class="b('body-list-item-link')">
             {{ item.name }}
           </router-link>

@@ -6,32 +6,15 @@ import bemCn from 'bem-cn-lite';
 
 import { useRoute } from 'vue-router';
 import { ref, watch } from 'vue';
+import { useListStore } from "~/stores/list";
 
-interface Menu {
-  id: number;
-  name: string;
-  path: string;
-}
 
-interface Languages {
-  id: number;
-  lang: string;
-}
+const { header } = useListStore()
+
+const menuList = header.flatMap(list => list.menu)
+const languagesList = header.flatMap(list => list.languages)
 
 const route = useRoute();
-
-const menuNames: Menu[] = [
-  { id: 1, name: 'Наборы', path: '/1' },
-  { id: 2, name: 'Все товары', path: '/2' },
-  { id: 3, name: 'Пошив', path: '/3' },
-  { id: 4, name: 'Производство', path: '/4' },
-  { id: 5, name: 'Информация', path: '/5' },
-];
-
-const lang: Languages[] = [
-  { id: 1, lang: 'RU' },
-  { id: 2, lang: 'ENG' },
-];
 
 const activeLang = ref<number | null>(1);
 const isOpen = ref(false);
@@ -80,7 +63,7 @@ const b = bemCn('header');
         </NuxtLink>
         <div :class="b('main-tab-lang')">
           <Button
-              v-for="item in lang"
+              v-for="item in languagesList"
               :key="item.id"
               mods="transparent"
               :disabled="activeLang === item.id"
@@ -105,7 +88,7 @@ const b = bemCn('header');
       <div :class="[b('body'), 'container']">
         <nav :class="b('body-menu')" class="header__body-menu">
           <ul :class="b('body-menu-list')">
-            <li v-for="item in menuNames" :key="item.id" :class="b('body-menu-list-item')">
+            <li v-for="item in menuList" :key="item.id" :class="b('body-menu-list-item')">
               <NuxtLink
                   :class="b('body-menu-list-item-link', { 'is-active': route.path === item.path })"
                   to="/"

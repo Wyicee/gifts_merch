@@ -2,9 +2,11 @@
 import Swiper from '@/components/swiper/Swiper.vue';
 import bemCn from 'bem-cn-lite';
 
-import { useLogosStore } from '@/stores/logos';
+import { useListStore } from "~/stores/list";
 
-const { LogosList } = useLogosStore();
+const { collab } = useListStore()
+
+const logosList = collab.flatMap(list => list.logos)
 
 const b = bemCn('collab');
 </script>
@@ -13,7 +15,7 @@ const b = bemCn('collab');
   <div :class="[b(''), 'container']">
     <div :class="b('body')">
       <h2 :class="b('body-title')">С нами соотрудничают</h2>
-      <Swiper :pagination="false" :items="LogosList"/>
+      <Swiper :pagination="false" :items="logosList"/>
     </div>
   </div>
 </template>

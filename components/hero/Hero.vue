@@ -2,11 +2,11 @@
 import Header from '@/components/header/Header.vue';
 import bemCn from 'bem-cn-lite';
 
-const preferencesList = [
-  `Высокое\n качество <strong>ONLY</strong>`,
-  `Поддержка\n менеджера <strong>24/7</strong>`,
-  `Выполнение заказа\n в <strong>TURBO-режиме</strong>`,
-];
+import { useListStore } from "~/stores/list";
+
+const { hero } = useListStore()
+
+const preferencesList = hero.flatMap(list => list.preferences)
 
 const b = bemCn('hero');
 </script>
