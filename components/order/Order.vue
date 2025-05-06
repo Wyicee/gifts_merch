@@ -7,13 +7,13 @@ const b = bemCn('order');
 <template>
   <div :class="b()">
     <div :class="[b('body'), 'container']">
-      <img
+      <NuxtImg
           :class="b('body-image')"
           src="/images/order/image.jpg"
           alt="mockup design sweater"
           width="753"
           height="532"
-      >
+      />
       <div :class="b('body-wrapper')">
         <h3 :class="b('body-title')">
           Помимо готовой продукции высокого качества, мы можем для Вас произвести одежду, аксессуры,
@@ -25,7 +25,7 @@ const b = bemCn('order');
         </p>
         <div :class="b('body-circles')">
           <div v-for="n in 4" :key="n" :class="b('body-circles-item')">
-            <img src="/images/order/1.png" alt="">
+            <NuxtImg src="/images/order/1.png" alt="" />
           </div>
         </div>
       </div>

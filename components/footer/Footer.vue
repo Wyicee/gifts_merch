@@ -5,11 +5,11 @@ import bemCn from 'bem-cn-lite';
 
 import { useListStore } from "~/stores/list";
 
-const { footer } = useListStore()
+const { footer } = useListStore();
 
-const socialsList = footer.flatMap(list => list.socials)
-const categoriesList = footer.flatMap(list => list.categories)
-const informationList = footer.flatMap(list => list.information)
+const socialsList = footer.flatMap(list => list.socials);
+const categoriesList = footer.flatMap(list => list.categories);
+const informationList = footer.flatMap(list => list.information);
 
 const b = bemCn('footer');
 </script>
@@ -19,13 +19,13 @@ const b = bemCn('footer');
     <div :class="[b('body'), 'container']">
       <div :class="b('body-info')">
         <div :class="b('body-info-column-mobile')">
-          <img
+          <NuxtImg
               :class="b('body-info-logo')"
               src="/icons/logo.svg"
               alt=""
               width="489"
               height="40"
-          >
+          />
           <p :class="b('body-info-description')">
             Свежее дыхание в корпоративной жизни и жизни корпоративной дыхание свежее
           </p>
@@ -45,7 +45,11 @@ const b = bemCn('footer');
                 target="_blank"
                 :href="item.href"
             >
-              <img :src="item.img" alt="" width="25" height="25">
+              <Icon
+                  :class="b('body-info-soc1als-item-icon')"
+                  :name="`gm-icon:${item.icon}`"
+                  :size="item.size"
+              />
             </a>
           </div>
         </div>
@@ -81,7 +85,11 @@ const b = bemCn('footer');
               target="_blank"
               :href="item.href"
           >
-            <img :src="item.img" alt="" width="25" height="25">
+            <Icon
+                :class="b('body-info-soc1als-item-icon')"
+                :name="`gm-icon:${item.icon}`"
+                :size="item.size"
+            />
           </a>
         </div>
       </div>
@@ -231,6 +239,18 @@ const b = bemCn('footer');
       &-soc1als {
         display: flex;
         column-gap: 22px;
+
+        &-item {
+          &-icon {
+            width: 24px;
+            height: 24px;
+
+            @include mobile {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
       }
     }
 

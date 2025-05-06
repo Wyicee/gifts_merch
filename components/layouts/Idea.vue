@@ -36,13 +36,13 @@ const b = bemCn('idea');
         >
       </h4>
       <div :class="b('body-column')">
-        <img
+        <NuxtImg
             :class="b('body-lamp')"
             src="/images/idea/lamp.png"
             alt=""
             width="432"
             height="422"
-        >
+        />
         <div :class="b('body-rocket')"/>
         <div :class="b('body-curve')"/>
       </div>

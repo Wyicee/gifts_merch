@@ -4,9 +4,9 @@ import bemCn from 'bem-cn-lite';
 
 import { useListStore } from "~/stores/list";
 
-const { hero } = useListStore()
+const { hero } = useListStore();
 
-const preferencesList = hero.flatMap(list => list.preferences)
+const preferencesList = hero.flatMap(list => list.preferences);
 
 const b = bemCn('hero');
 </script>
@@ -26,17 +26,17 @@ const b = bemCn('hero');
             :key="index"
             class="hero__body-preferences-item"
         >
-          <img src="/images/hero/circle.svg" alt="" width="109" height="94">
+          <NuxtImg src="/images/hero/circle.svg" alt="" width="109" height="94"/>
           <p v-html="item"/>
         </div>
       </div>
-      <img
+      <NuxtImg
           :class="b('body-image')"
           src="/images/hero/bg-girls.png"
           alt="girls"
           width="785"
           height="610"
-      >
+      />
     </div>
   </div>
 </template>

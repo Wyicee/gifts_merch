@@ -26,12 +26,12 @@ const b = bemCn('popular');
       </Button>
       <div :class="b('body-collage')">
         <figure :class="b('body-collage-item')">
-          <img src="/images/popular/1.jpg" alt="">
+          <NuxtImg src="/images/popular/1.jpg" alt="" />
           <figcaption v-if="isDesktop">
             <p>Шопперы</p>
           </figcaption>
         </figure>
-        <img v-for="i in 3" :key="i" src="/images/popular/1.jpg" alt="">
+        <NuxtImg v-for="i in 3" :key="i" src="/images/popular/1.jpg" alt="" />
       </div>
     </div>
   </div>
@@ -84,7 +84,7 @@ const b = bemCn('popular');
       &-star {
         &::after {
           content: '';
-          background: url('/icons/popular/star-green.svg') no-repeat center / cover;
+          background: url('/icons/star-green.svg') no-repeat center / cover;
           width: 32px;
           height: 31px;
           margin-left: 28px;
@@ -139,7 +139,7 @@ const b = bemCn('popular');
 
       &-arrow-right {
         &::after {
-          content: url('/icons/popular/arrow-right-icon.svg');
+          content: url('/icons/arrow-right-icon.svg');
           margin-left: 20px;
         }
       }

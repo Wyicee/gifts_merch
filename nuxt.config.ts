@@ -3,6 +3,17 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt'],
+  image: {
+    format: ['webp'],
+  },
+  icon: {
+    customCollections: [
+      {
+        prefix: 'gm-icon',
+        dir: './public/icons',
+      },
+    ],
+  },
   css: [
     'assets/styles/main.scss'
   ],

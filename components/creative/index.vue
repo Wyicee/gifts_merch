@@ -13,13 +13,13 @@ const b = bemCn('gm-creative')
   <div :class="b()">
     <div :class="[b('body'), 'container']">
       <div :class="b('body-wrapper')">
-        <img
+        <NuxtImg
           :class="b('body-word')"
           src="/images/creative/creative.png"
           alt="CREATIVE-WORD-OMG"
           width="299"
           height="64"
-        >
+        />
         <h2 :class="b('body-title')">
           Хотите удивить ваших коллег/партнеров необычными подарками?
         </h2>
@@ -32,13 +32,13 @@ const b = bemCn('gm-creative')
           <Button mods="default">Создать свой</Button>
         </div>
       </div>
-      <img
+      <NuxtImg
         :class="b('body-image')"
         src="/images/creative/image.png"
         alt=""
         width="722"
         height="649"
-      >
+      />
     </div>
   </div>
 </template>

@@ -36,11 +36,11 @@ const b = bemCn('modal');
           /
           <Button mods="transparent">ENG</Button>
         </div>
-        <router-link :class="b('body-tabs-profile')" to="">
-          <img src="/icons/header/profile.svg" alt="" width="40" height="40">
-        </router-link>
+        <NuxtLink :class="b('body-tabs-profile')" to="">
+          <Icon name="gm-icon:profile" size="40"/>
+        </NuxtLink>
         <Button :class="b('body-tabs-close')" mods="transparent" @click.esc="emit('closeModal')">
-          <img src="/icons/header/close.svg" alt="">
+          <Icon name="gm-icon:close" mode="svg" size="24"/>
         </Button>
       </div>
       <ul :class="b('body-list')">
@@ -61,7 +61,7 @@ const b = bemCn('modal');
       <ul :class="b('body-socials')">
         <li v-for="item in socialsList" :key="item.id" :class="b('body-socials')">
           <a :class="b('body-socials-item')" target="_blank" :href="item.href">
-            <img :src="item.img" alt="" width="25" height="25">
+            <Icon :name="`gm-icon:${item.icon}`" :size="item.size"/>
           </a>
         </li>
       </ul>
@@ -115,6 +115,8 @@ const b = bemCn('modal');
       }
 
       &-close {
+        display: flex;
+        align-items: center;
         margin-left: 20px;
       }
     }

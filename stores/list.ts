@@ -6,15 +6,21 @@ export const useListStore = defineStore('list', {
       {
         socials: [
           {
-            id: 1, img: '/icons/footer/facebook.svg',
+            id: 1,
+            icon: 'facebook',
+            size: 20,
             href: 'https://www.facebook.com'
           },
           {
-            id: 2, img: '/icons/footer/instagram.svg',
+            id: 2,
+            icon: 'instagram',
+            size: 20,
             href: 'https://www.instagram.com'
           },
           {
-            id: 3, img: '/icons/footer/linkedin.svg',
+            id: 3,
+            icon: 'linkedin',
+            size: 20,
             href: 'https://www.linkedin.com'
           }
         ],
