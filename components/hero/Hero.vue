@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import Header from '@/components/header/Header.vue'
-import bemCn from 'bem-cn-lite'
+import Header from '@/components/header/Header.vue';
+import bemCn from 'bem-cn-lite';
 
 const preferencesList = [
   `Высокое\n качество <strong>ONLY</strong>`,
   `Поддержка\n менеджера <strong>24/7</strong>`,
   `Выполнение заказа\n в <strong>TURBO-режиме</strong>`,
-]
+];
 
-const b = bemCn('hero')
+const b = bemCn('hero');
 </script>
 
 <template>
   <div :class="b()">
-    <Header />
+    <Header/>
     <div :class="[b('body'), 'container']">
       <h2 :class="b('body-title')">Свежее дыхание в корпоративной жизни</h2>
       <p :class="b('body-description')">
@@ -22,20 +22,20 @@ const b = bemCn('hero')
       </p>
       <div :class="b('body-preferences')">
         <div
-          v-for="(item, index) in preferencesList"
-          :key="index"
-          class="hero__body-preferences-item"
+            v-for="(item, index) in preferencesList"
+            :key="index"
+            class="hero__body-preferences-item"
         >
-          <img src="/images/hero/circle.svg" alt="" width="109" height="94" >
+          <img src="/images/hero/circle.svg" alt="" width="109" height="94">
           <p v-html="item"/>
         </div>
       </div>
       <img
-        :class="b('body-image')"
-        src="/images/hero/bg-girls.png"
-        alt="girls"
-        width="785"
-        height="610"
+          :class="b('body-image')"
+          src="/images/hero/bg-girls.png"
+          alt="girls"
+          width="785"
+          height="610"
       >
     </div>
   </div>

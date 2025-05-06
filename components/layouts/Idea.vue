@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import Input from '@/components/ui/Input.vue'
-import Button from '@/components/ui/Button.vue'
-import Form from '@/components/ui/Form.vue'
-import bemCn from 'bem-cn-lite'
+import Input from '@/components/ui/Input.vue';
+import Button from '@/components/ui/Button.vue';
+import Form from '@/components/ui/Form.vue';
+import bemCn from 'bem-cn-lite';
 
-import { useWindowSize } from '@vueuse/core'
+import { useWindowSize } from '@vueuse/core';
 
-import { computed } from 'vue'
+import { computed } from 'vue';
 
-const { width } = useWindowSize()
+const { width } = useWindowSize();
 
-const isDesktop = computed(() => width.value >= 1023.98)
+const isDesktop = computed(() => width.value >= 1023.98);
 
 const formText = computed(() =>
-  width.value >= 1023.98 ? 'в течение 1 часа' : 'в течение 15 минут',
-)
+    width.value >= 1023.98 ? 'в течение 1 часа' : 'в течение 15 минут',
+);
 
-const b = bemCn('idea')
+const b = bemCn('idea');
 </script>
 
 <template>
@@ -32,33 +32,33 @@ const b = bemCn('idea')
       <h4 :class="b('body-subtitle')">
         Введите свои контактные данные, и наш менеджер свяжется с Вами
         <span :class="{ 'text-decoration': !isDesktop }"
-          ><br v-if="!isDesktop" >{{ formText }}</span
+        ><br v-if="!isDesktop">{{ formText }}</span
         >
       </h4>
       <div :class="b('body-column')">
         <img
-          :class="b('body-lamp')"
-          src="/images/idea/lamp.png"
-          alt=""
-          width="432"
-          height="422"
+            :class="b('body-lamp')"
+            src="/images/idea/lamp.png"
+            alt=""
+            width="432"
+            height="422"
         >
         <div :class="b('body-rocket')"/>
         <div :class="b('body-curve')"/>
       </div>
       <Form :class="b('body-form')">
-        <Input :class="b('body-form-input')" type="text" mods="idea" placeholder="Ваше Имя" />
+        <Input :class="b('body-form-input')" type="text" mods="idea" placeholder="Ваше Имя"/>
         <Input
-          :class="b('body-form-input')"
-          type="email"
-          mods="idea"
-          placeholder="Ваша електронная почта"
+            :class="b('body-form-input')"
+            type="email"
+            mods="idea"
+            placeholder="Ваша електронная почта"
         />
         <Input
-          :class="b('body-form-input')"
-          type="tel"
-          mods="idea"
-          placeholder="Ваш номер телефона"
+            :class="b('body-form-input')"
+            type="tel"
+            mods="idea"
+            placeholder="Ваш номер телефона"
         />
         <Button :class="b('body-form-button')" mods="default" type="submit">Заказать</Button>
       </Form>

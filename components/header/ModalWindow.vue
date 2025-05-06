@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import Button from '@/components/ui/Button.vue'
-import bemCn from 'bem-cn-lite'
+import Button from '@/components/ui/Button.vue';
+import bemCn from 'bem-cn-lite';
 
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 interface List {
-  id: number
-  name: string
+  id: number;
+  name: string;
 }
 
 const routingList: List[] = [
@@ -21,25 +21,24 @@ const routingList: List[] = [
   { id: 9, name: 'Жилетки' },
   { id: 10, name: 'Маски' },
   { id: 11, name: 'Рюкзаки' },
-]
+];
 const socialsList = [
-  { id: 1, img: 'src/assets/icons/footer/facebook.svg', href: 'https://www.facebook.com' },
-  { id: 2, img: 'src/assets/icons/footer/instagram.svg', href: 'https://www.instagram.com' },
-  { id: 3, img: 'src/assets/icons/footer/linkedin.svg', href: 'https://www.linkedin.com' },
-]
+  { id: 1, img: '/icons/footer/facebook.svg', href: 'https://www.facebook.com' },
+  { id: 2, img: '/icons/footer/instagram.svg', href: 'https://www.instagram.com' },
+  { id: 3, img: '/icons/footer/linkedin.svg', href: 'https://www.linkedin.com' },
+];
 
 const emit = defineEmits<{
   closeModal: []
-  toggleLang: []
-}>()
+}>();
 
-const activeItemId = ref<number>(1)
+const activeItemId = ref<number>(1);
 
 const handleClick = (id: number) => {
-  activeItemId.value = activeItemId.value === id ? 0 : id
-}
+  activeItemId.value = activeItemId.value === id ? 0 : id;
+};
 
-const b = bemCn('window')
+const b = bemCn('modal');
 </script>
 
 <template>
@@ -52,18 +51,18 @@ const b = bemCn('window')
           <Button mods="transparent">ENG</Button>
         </div>
         <router-link :class="b('body-tabs-profile')" to="">
-          <img src="/icons/header/profile.svg" alt="" width="40" height="40" >
+          <img src="/icons/header/profile.svg" alt="" width="40" height="40">
         </router-link>
         <Button :class="b('body-tabs-close')" mods="transparent" @click.esc="emit('closeModal')">
-          <img src="/icons/header/close.svg" alt="" >
+          <img src="/icons/header/close.svg" alt="">
         </Button>
       </div>
       <ul :class="b('body-list')">
         <li v-for="item in routingList" :key="item.id" :class="b('body-list-item')">
           <router-link
-            :class="b('body-list-item-link', { 'is-active': activeItemId === item.id })"
-            to=""
-            @click="handleClick(item.id)"
+              :class="b('body-list-item-link', { 'is-active': activeItemId === item.id })"
+              to=""
+              @click="handleClick(item.id)"
           >
             {{ item.name }}
           </router-link>
@@ -76,7 +75,7 @@ const b = bemCn('window')
       <ul :class="b('body-socials')">
         <li v-for="item in socialsList" :key="item.id" :class="b('body-socials')">
           <a :class="b('body-socials-item')" target="_blank" :href="item.href">
-            <img :src="item.img" alt="" width="25" height="25" >
+            <img :src="item.img" alt="" width="25" height="25">
           </a>
         </li>
       </ul>
@@ -85,7 +84,7 @@ const b = bemCn('window')
 </template>
 
 <style scoped lang="scss">
-.window {
+.modal {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,7 +98,7 @@ const b = bemCn('window')
   transform: translate(-50%, -50%);
   z-index: 999;
 
-  .window__body {
+  &__body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,10 +145,10 @@ const b = bemCn('window')
         font-weight: 600;
         color: #8e8e8e;
 
-        a {
+        &-link {
           white-space: pre-line;
 
-          &.is-active {
+          &_is-active {
             color: #000;
           }
         }

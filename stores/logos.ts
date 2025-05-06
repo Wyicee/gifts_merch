@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
-import type { LogosProps } from '@/types/logosProps.ts'
+import type { LogosProps } from '@/types/logosProps.ts';
 
 export const useLogosStore = defineStore('logos', {
   state: () => ({
@@ -32,4 +32,4 @@ export const useLogosStore = defineStore('logos', {
       },
     ] as LogosProps[],
   }),
-})
+});

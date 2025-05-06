@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
-import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules'
+import { A11y, Autoplay, Navigation, Pagination } from 'swiper/modules';
 
-import 'swiper/scss'
-import 'swiper/scss/navigation'
-import 'swiper/scss/pagination'
-import 'swiper/scss/scrollbar'
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/scrollbar';
 
-import type { LogosProps } from '@/types/logosProps.ts'
-import { reactive } from 'vue'
+import type { LogosProps } from '@/types/logosProps.ts';
+import { reactive } from 'vue';
 
-const modules = [Navigation, Pagination, A11y, Autoplay]
+const modules = [ Navigation, Pagination, A11y, Autoplay ];
 
 interface Props {
-  items: LogosProps[]
-  pagination: boolean
+  items: LogosProps[];
+  pagination: boolean;
 }
 
-defineProps<Props>()
+defineProps<Props>();
 
 const swiperSettings = reactive({
   autoplay: {
@@ -37,13 +37,13 @@ const swiperSettings = reactive({
       slidesPerView: 5,
     },
   },
-})
+});
 </script>
 
 <template>
   <Swiper v-bind="swiperSettings" :modules="modules" navigation :pagination="pagination">
     <SwiperSlide v-for="item in items" :key="item.id"
-      ><img :src="item.src" :alt="item.alt"
+    ><img :src="item.src" :alt="item.alt"
     ></SwiperSlide>
   </Swiper>
 </template>

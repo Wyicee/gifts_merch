@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import Button from '@/components/ui/Button.vue'
-import bemCn from 'bem-cn-lite'
+import Button from '@/components/ui/Button.vue';
+import bemCn from 'bem-cn-lite';
 
-import { computed } from 'vue'
-import { useWindowSize } from '@vueuse/core'
+import { computed } from 'vue';
+import { useWindowSize } from '@vueuse/core';
 
-const { width } = useWindowSize()
+const { width } = useWindowSize();
 
-const isDesktop = computed(() => width.value >= 767.98)
+const isDesktop = computed(() => width.value >= 767.98);
 
-const b = bemCn('popular')
+const b = bemCn('popular');
 </script>
 
 <template>
@@ -26,12 +26,12 @@ const b = bemCn('popular')
       </Button>
       <div :class="b('body-collage')">
         <figure :class="b('body-collage-item')">
-          <img src="/images/popular/1.jpg" alt="" >
+          <img src="/images/popular/1.jpg" alt="">
           <figcaption v-if="isDesktop">
             <p>Шопперы</p>
           </figcaption>
         </figure>
-        <img v-for="i in 3" :key="i" src="/images/popular/1.jpg" alt="" >
+        <img v-for="i in 3" :key="i" src="/images/popular/1.jpg" alt="">
       </div>
     </div>
   </div>

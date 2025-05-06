@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import bemCn from 'bem-cn-lite'
+import bemCn from 'bem-cn-lite';
 
-const b = bemCn('order')
+const b = bemCn('order');
 </script>
 
 <template>
   <div :class="b()">
     <div :class="[b('body'), 'container']">
       <img
-        :class="b('body-image')"
-        src="/images/order/image.jpg"
-        alt="mockup design sweater"
-        width="753"
-        height="532"
+          :class="b('body-image')"
+          src="/images/order/image.jpg"
+          alt="mockup design sweater"
+          width="753"
+          height="532"
       >
       <div :class="b('body-wrapper')">
         <h3 :class="b('body-title')">
@@ -25,7 +25,7 @@ const b = bemCn('order')
         </p>
         <div :class="b('body-circles')">
           <div v-for="n in 4" :key="n" :class="b('body-circles-item')">
-            <img src="/images/order/1.png" alt="" >
+            <img src="/images/order/1.png" alt="">
           </div>
         </div>
       </div>
@@ -54,9 +54,8 @@ const b = bemCn('order')
     &-image {
       height: 532px;
       border-radius: $bor-radius-15;
-      box-shadow:
-        0 8px 8px -4px rgba(26, 32, 44, 0.04),
-        0 16px 20px -4px rgba(26, 32, 44, 0.1);
+      box-shadow: 0 8px 8px -4px rgba(26, 32, 44, 0.04),
+      0 16px 20px -4px rgba(26, 32, 44, 0.1);
       object-fit: none;
     }
 
@@ -110,9 +109,8 @@ const b = bemCn('order')
         aspect-ratio: 1 / 1;
         background: linear-gradient(45deg, #9796f0 0%, #ffe0e8 100%) no-repeat center / cover;
         border-radius: 100%;
-        box-shadow:
-          0 8px 8px -4px rgba(26, 32, 44, 0.04),
-          0 16px 20px -4px rgba(26, 32, 44, 0.1);
+        box-shadow: 0 8px 8px -4px rgba(26, 32, 44, 0.04),
+        0 16px 20px -4px rgba(26, 32, 44, 0.1);
       }
     }
   }

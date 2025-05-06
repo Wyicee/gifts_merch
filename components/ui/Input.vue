@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { useId } from 'vue'
+import { useId } from 'vue';
 
 interface InputProps {
-  type?: string
-  placeholder?: string
-  error?: string
-  label?: string
-  modelValue?: string | number | []
-  mods?: 'header' | 'footer' | 'idea'
+  type?: string;
+  placeholder?: string;
+  error?: string;
+  label?: string;
+  modelValue?: string | number | [];
+  mods?: 'header' | 'footer' | 'idea';
 }
 
-defineProps<InputProps>()
+defineProps<InputProps>();
 
-const id = useId()
+const id = useId();
 
 const emit = defineEmits<{
-  update: [value: unknown]
-}>()
+  update: [ value: unknown ]
+}>();
 </script>
 
 <template>
@@ -25,12 +25,12 @@ const emit = defineEmits<{
       {{ label }}
     </label>
     <input
-      :id="id"
-      :class="`input ${mods}`"
-      :type="type"
-      :placeholder="placeholder"
-      :value="modelValue"
-      @input="emit('update', modelValue)"
+        :id="id"
+        :class="`input ${mods}`"
+        :type="type"
+        :placeholder="placeholder"
+        :value="modelValue"
+        @input="emit('update', modelValue)"
     >
     <small v-if="error" class="error">{{ error }}</small>
   </div>

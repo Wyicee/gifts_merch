@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import Form from '@/components/ui/Form.vue'
-import Input from '@/components/ui/Input.vue'
-import bemCn from 'bem-cn-lite'
+import Form from '@/components/ui/Form.vue';
+import Input from '@/components/ui/Input.vue';
+import bemCn from 'bem-cn-lite';
 
 const socialsList = [
   { id: 1, img: '/icons/footer/facebook.svg', href: 'https://www.facebook.com' },
   { id: 2, img: '/icons/footer/instagram.svg', href: 'https://www.instagram.com' },
   { id: 3, img: '/icons/footer/linkedin.svg', href: 'https://www.linkedin.com' }
-]
+];
 
 const categoriesCol = [
   { id: 1, name: 'Пошив' },
   { id: 2, name: 'Все товары' },
   { id: 3, name: 'Наборы' },
   { id: 4, name: 'Производство' }
-]
+];
 
 const informationCol = [
   { id: 1, name: 'О нас' },
   { id: 2, name: 'ЧаВо' },
   { id: 3, name: 'Контакты' }
-]
+];
 
-const b = bemCn('footer')
+const b = bemCn('footer');
 </script>
 
 <template>
@@ -31,11 +31,11 @@ const b = bemCn('footer')
       <div :class="b('body-info')">
         <div :class="b('body-info-column-mobile')">
           <img
-            :class="b('body-info-logo')"
-            src="/icons/logo.svg"
-            alt=""
-            width="489"
-            height="40"
+              :class="b('body-info-logo')"
+              src="/icons/logo.svg"
+              alt=""
+              width="489"
+              height="40"
           >
           <p :class="b('body-info-description')">
             Свежее дыхание в корпоративной жизни и жизни корпоративной дыхание свежее
@@ -50,13 +50,13 @@ const b = bemCn('footer')
           </div>
           <div :class="b('body-info-soc1als')">
             <a
-              v-for="item in socialsList"
-              :key="item.id"
-              :class="b('body-info-soc1als-item')"
-              target="_blank"
-              :href="item.href"
+                v-for="item in socialsList"
+                :key="item.id"
+                :class="b('body-info-soc1als-item')"
+                target="_blank"
+                :href="item.href"
             >
-              <img :src="item.img" alt="" width="25" height="25" >
+              <img :src="item.img" alt="" width="25" height="25">
             </a>
           </div>
         </div>
@@ -86,13 +86,13 @@ const b = bemCn('footer')
         </div>
         <div :class="b('body-info-soc1als')">
           <a
-            v-for="item in socialsList"
-            :key="item.id"
-            :class="b('body-info-soc1als-item')"
-            target="_blank"
-            :href="item.href"
+              v-for="item in socialsList"
+              :key="item.id"
+              :class="b('body-info-soc1als-item')"
+              target="_blank"
+              :href="item.href"
           >
-            <img :src="item.img" alt="" width="25" height="25" >
+            <img :src="item.img" alt="" width="25" height="25">
           </a>
         </div>
       </div>
@@ -100,14 +100,14 @@ const b = bemCn('footer')
         <Form direction="column">
           <h4 :class="b('body-form-title')">Связаться с менеджером</h4>
           <p :class="b('body-form-description')">
-            Есть вопрос на который не нашли ответ?<br >
+            Есть вопрос на который не нашли ответ?<br>
             Оставьте контакт и наш менеджер свяжеться с вами
           </p>
           <Input
-            :class="b('body-form-input')"
-            mods="footer"
-            type="tel"
-            placeholder="Номер телефона"
+              :class="b('body-form-input')"
+              mods="footer"
+              type="tel"
+              placeholder="Номер телефона"
           />
         </Form>
       </div>

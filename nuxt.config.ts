@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxt/image'],
+  modules: [ '@nuxt/eslint', '@nuxt/icon', '@nuxt/image' ],
   css: [
     'assets/styles/main.scss'
   ],
@@ -19,4 +19,4 @@ export default defineNuxtConfig({
       }
     }
   }
-})
+});
