@@ -2,9 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt'],
+  modules: [ '@nuxt/eslint', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt' ],
   image: {
-    format: ['webp'],
+    format: [ 'webp' ],
   },
   icon: {
     customCollections: [
@@ -13,6 +13,9 @@ export default defineNuxtConfig({
         dir: './public/icons',
       },
     ],
+  },
+  build: {
+    transpile: [ 'gsap' ],
   },
   css: [
     'assets/styles/main.scss'
