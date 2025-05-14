@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import GmGasp from "~/components/gsap/index.vue";
+import GmTicTacToe from "~/components/game/index.vue";
 </script>
 
 <template>
-  <GmGasp />
+  <GmTicTacToe />
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="js">
-import {gsap} from 'gsap'
-import {ref} from 'vue'
+import { gsap } from 'gsap'
+import { ref } from 'vue'
 import bemCn from "bem-cn-lite";
 
 const box = ref(null);
