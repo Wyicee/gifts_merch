@@ -78,6 +78,10 @@ const b = block('idea');
     padding-top: 200px;
   }
 
+  @include mobile-s {
+    padding-top: 400px;
+  }
+
   &__body {
     display: grid;
     grid-template-columns: auto auto;
@@ -226,6 +230,11 @@ const b = block('idea');
           left: initial;
         }
 
+        @include tablet {
+          top: 58%;
+          right: 47%;
+        }
+
         @include mobile {
           top: 22%;
           right: 10%;
@@ -285,6 +294,11 @@ const b = block('idea');
           top: 62%;
           left: initial;
           bottom: initial;
+        }
+
+        @include tablet {
+          top: 68%;
+          right: 45%;
         }
 
         @include mobile {

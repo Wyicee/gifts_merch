@@ -29,6 +29,10 @@ const b = block('collab');
       margin-top: 300px;
     }
 
+    @include mobile-s {
+      margin-top: 400px;
+    }
+
     &-title {
       padding-bottom: 70px;
 

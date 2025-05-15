@@ -27,8 +27,11 @@ const swiperSettings = reactive({
   spaceBetween: 120,
   breakpoints: {
     0: {
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 20,
+    },
+    500: {
+      slidesPerView: 2,
     },
     767.98: {
       slidesPerView: 3,

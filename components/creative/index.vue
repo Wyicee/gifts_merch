@@ -2,9 +2,16 @@
 import Button from '@/components/ui/Button.vue'
 import block from 'bem-cn-lite'
 
+import { useWindowSize } from '@vueuse/core';
+import { computed } from 'vue';
+
+const { width } = useWindowSize();
+
 defineOptions({
   name: 'GmCreative',
 })
+
+const isDesktop = computed(() => width.value >= 1023.98 || width.value <= 480.98 );
 
 const b = block('gm-creative')
 </script>
@@ -19,12 +26,13 @@ const b = block('gm-creative')
           alt="CREATIVE-WORD-OMG"
           width="299"
           height="64"
+          loading="lazy"
         />
         <h2 :class="b('body-title')">
-          Хотите удивить ваших коллег/партнеров необычными подарками?
+          Хотите удивить ваших коллег/<br v-if="!isDesktop"/>партнеров необычными подарками?
         </h2>
         <p :class="b('body-description')">
-          Выбирайте готовые подарочные наборы или укажите<br >
+          Выбирайте готовые подарочные наборы или укажите<br/>
           критерии по которым мы соберем для Вас уникальный бокс.
         </p>
         <div :class="b('body-buttons')">
@@ -38,6 +46,7 @@ const b = block('gm-creative')
         alt=""
         width="722"
         height="649"
+        loading="lazy"
       />
     </div>
   </div>
@@ -79,9 +88,9 @@ const b = block('gm-creative')
       margin-right: -200px;
       z-index: 999;
 
+
       @include tablet {
         font-size: 28px;
-        margin-right: -100px;
       }
 
       @include mobile {

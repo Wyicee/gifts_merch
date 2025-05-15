@@ -13,6 +13,7 @@ const b = block('order');
           alt="mockup design sweater"
           width="753"
           height="532"
+          loading="lazy"
       />
       <div :class="b('body-wrapper')">
         <h3 :class="b('body-title')">
@@ -52,16 +53,19 @@ const b = block('order');
     }
 
     &-image {
+      max-width: 826px;
+      width: 100%;
       height: 532px;
       border-radius: $bor-radius-15;
       box-shadow: 0 8px 8px -4px rgba(26, 32, 44, 0.04),
       0 16px 20px -4px rgba(26, 32, 44, 0.1);
-      object-fit: none;
+      object-fit: cover;
     }
 
     &-wrapper {
       display: flex;
       flex-direction: column;
+      align-items: start;
     }
 
     &-title {
@@ -96,6 +100,10 @@ const b = block('order');
       justify-content: space-between;
       column-gap: 24px;
       padding-top: 40px;
+
+      @include laptop {
+        padding-top: 32px;
+      }
 
       @include mobile {
         padding-top: 40px;
