@@ -37,9 +37,6 @@ const emit = defineEmits<{
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 .input {
   width: 100%;
 

@@ -49,8 +49,6 @@ const swiperSettings = reactive({
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/media';
-
 .swiper-wrapper {
   display: flex;
   flex-direction: column;

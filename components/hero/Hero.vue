@@ -42,9 +42,6 @@ const b = block('hero');
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 .hero {
   position: relative;
   overflow: hidden;
@@ -138,7 +135,7 @@ const b = block('hero');
         justify-self: center;
         column-gap: 74px;
         padding-block: 70px 0;
-        margin-top: 120px;
+        margin-top: 220px;
       }
 
       @include mobile {
@@ -157,6 +154,15 @@ const b = block('hero');
         font-weight: 600;
         text-align: center;
         white-space: pre-wrap;
+        text-wrap: nowrap;
+
+        @include laptop {
+          font-size: 18px;
+        }
+
+        @include tablet {
+          font-size: 16px;
+        }
 
         img {
           max-width: 109px;
@@ -165,14 +171,6 @@ const b = block('hero');
           @include mobile {
             max-width: 71px;
           }
-        }
-
-        @include laptop {
-          font-size: 18px;
-        }
-
-        @include tablet {
-          font-size: 16px;
         }
       }
     }

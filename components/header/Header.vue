@@ -46,7 +46,7 @@ const b = block('header');
       <Button :class="b('main-button')" mods="default">+380 630 130 103</Button>
       <div :class="[b('main-tab'), 'hidden-mobile']">
         <NuxtLink :class="b('main-tab-profile')" to="">
-          <Icon name="gm-icon:profile" size="40" />
+          <Icon name="gm-icon:profile" size="40" mode="svg" />
         </NuxtLink>
         <div :class="b('main-tab-lang')">
           <Button
@@ -100,9 +100,6 @@ const b = block('header');
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 .header {
   &__main {
     display: flex;
@@ -158,6 +155,11 @@ const b = block('header');
         @include laptop {
           width: 24px;
           height: 24px;
+
+          svg {
+            width: 24px;
+            height: 24px;
+          }
         }
       }
 

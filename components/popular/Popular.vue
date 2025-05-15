@@ -38,9 +38,6 @@ const b = block('popular');
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 .popular {
   position: relative;
   z-index: 0;

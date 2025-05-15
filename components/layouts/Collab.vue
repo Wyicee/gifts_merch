@@ -21,15 +21,12 @@ const b = block('collab');
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 .collab {
   &__body {
     margin-top: 100px;
 
     @include mobile {
-      margin-top: 200px;
+      margin-top: 300px;
     }
 
     &-title {

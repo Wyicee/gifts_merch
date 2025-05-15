@@ -34,9 +34,6 @@ const b = block('order');
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 .order {
   padding-top: 100px;
 

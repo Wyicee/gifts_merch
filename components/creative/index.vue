@@ -44,9 +44,6 @@ const b = block('gm-creative')
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 .gm-creative {
   background: url('/images/creative/bg.png') no-repeat;
   background-size: cover;

@@ -15,9 +15,6 @@ defineProps<ButtonProps>();
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 button {
   font-size: 18px;
   text-wrap: nowrap;

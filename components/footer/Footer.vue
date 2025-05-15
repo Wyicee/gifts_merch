@@ -117,9 +117,6 @@ const b = block('footer');
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-
 .footer {
   background: url('/images/footer/bg.svg') no-repeat;
   background-size: cover;

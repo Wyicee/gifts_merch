@@ -37,7 +37,7 @@ const b = block('modal');
           <Button mods="transparent">ENG</Button>
         </div>
         <NuxtLink :class="b('body-tabs-profile')" to="">
-          <Icon name="gm-icon:profile" size="40"/>
+          <Icon name="gm-icon:profile" size="24" mode="svg"/>
         </NuxtLink>
         <Button :class="b('body-tabs-close')" mods="transparent" @click.esc="emit('closeModal')">
           <Icon name="gm-icon:close" mode="svg" size="24"/>
@@ -108,7 +108,7 @@ const b = block('modal');
       }
 
       &-profile {
-        img {
+        svg {
           width: 24px;
           height: 24px;
         }

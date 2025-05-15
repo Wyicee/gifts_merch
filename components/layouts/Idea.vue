@@ -31,9 +31,8 @@ const b = block('idea');
       </div>
       <h4 :class="b('body-subtitle')">
         Введите свои контактные данные, и наш менеджер свяжется с Вами
-        <span :class="{ 'text-decoration': !isDesktop }"
-        ><br v-if="!isDesktop">{{ formText }}</span
-        >
+        <span :class="{ 'text-decoration': !isDesktop }">
+          <br v-if="!isDesktop">{{ formText }}</span>
       </h4>
       <div :class="b('body-column')">
         <NuxtImg
@@ -46,6 +45,7 @@ const b = block('idea');
         <div :class="b('body-rocket')"/>
         <div :class="b('body-curve')"/>
       </div>
+      <NuxtImg :class="b('body-curve-img')" src="/images/idea/curve.svg" alt=""/>
       <Form :class="b('body-form')">
         <Input :class="b('body-form-input')" type="text" mods="idea" placeholder="Ваше Имя"/>
         <Input
@@ -67,10 +67,6 @@ const b = block('idea');
 </template>
 
 <style scoped lang="scss">
-@use 'assets/styles/vars';
-@use 'assets/styles/media';
-@use 'assets/styles/utils';
-
 .idea {
   background: url('/images/idea/bg.svg') no-repeat top center;
   background-size: cover;
@@ -106,6 +102,7 @@ const b = block('idea');
       grid-template-areas:
         'column-2'
         'column-1'
+        'curve'
         'subtitle'
         'form';
     }
@@ -175,14 +172,10 @@ const b = block('idea');
         font-size: 20px;
         text-align: center;
         max-width: initial;
-        padding-top: 40px;
-      }
-
-      @include mobile-s {
         padding: 0;
       }
 
-      .text-decoration {
+      & .text-decoration {
         color: #1fab8a;
       }
     }
@@ -211,7 +204,7 @@ const b = block('idea');
     }
 
     &-rocket {
-      @include mobile-s {
+      @media (max-width: 440px) {
         @include visually-hidden;
       }
 
@@ -257,6 +250,10 @@ const b = block('idea');
           top: initial;
         }
 
+        @include tablet {
+          bottom: -8%;
+        }
+
         @include mobile {
           top: 25%;
           left: 5%;
@@ -266,7 +263,7 @@ const b = block('idea');
     }
 
     &-curve {
-      @include mobile-s {
+      @include mobile {
         @include visually-hidden;
       }
 
@@ -301,7 +298,19 @@ const b = block('idea');
           top: 55%;
         }
       }
+
+      &-img {
+        @include mobile-above {
+          @include visually-hidden;
+        }
+
+        @include mobile {
+          grid-area: curve;
+          justify-self: center;
+        }
+      }
     }
   }
+
 }
 </style>
