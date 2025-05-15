@@ -21,6 +21,9 @@ const b = bemCn('collab');
 </template>
 
 <style scoped lang="scss">
+@import 'assets/styles/vars';
+@import 'assets/styles/media';
+
 .collab {
   &__body {
     margin-top: 100px;

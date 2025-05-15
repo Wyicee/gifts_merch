@@ -67,6 +67,10 @@ const b = bemCn('idea');
 </template>
 
 <style scoped lang="scss">
+@import 'assets/styles/vars';
+@import 'assets/styles/media';
+@import 'assets/styles/utils';
+
 .idea {
   background: url('/images/idea/bg.svg') no-repeat top center;
   background-size: cover;

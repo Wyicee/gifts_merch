@@ -42,6 +42,9 @@ const b = bemCn('hero');
 </template>
 
 <style scoped lang="scss">
+@import 'assets/styles/vars';
+@import 'assets/styles/media';
+
 .hero {
   position: relative;
   overflow: hidden;

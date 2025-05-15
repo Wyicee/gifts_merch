@@ -44,6 +44,8 @@ const b = bemCn('gm-creative')
 </template>
 
 <style scoped lang="scss">
+@import 'assets/styles/vars';
+@import 'assets/styles/media';
 
 .gm-creative {
   background: url('/images/creative/bg.png') no-repeat;
@@ -142,9 +144,8 @@ const b = bemCn('gm-creative')
       }
 
       @include mobile {
-        margin: 0;
         padding-top: 33px;
-        margin-bottom: -50px;
+        margin: 0 0 -50px;
         width: 372px;
       }
     }

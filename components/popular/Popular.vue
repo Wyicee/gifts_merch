@@ -38,6 +38,9 @@ const b = bemCn('popular');
 </template>
 
 <style scoped lang="scss">
+@import 'assets/styles/vars';
+@import 'assets/styles/media';
+
 .popular {
   position: relative;
   z-index: 0;
