@@ -9,6 +9,7 @@ const { footer, header } = useListStore();
 
 // ЧТОБЫ ДВА РАЗА НЕ СОЗДАВАТЬ SAME МАССИВ, Я ВЗЯЛ ИЗ FOOTER
 const socialsList = footer.flatMap(list => list.socials);
+const languagesList = header.flatMap(list => list.languages);
 
 const routingList = header
     .flatMap(list => list.modalWindow)
@@ -19,6 +20,11 @@ const emit = defineEmits<{
 }>();
 
 const activeItemId = ref<number>(1);
+const activeLang = ref<number | null>(1);
+
+const handleCLick = (id: number) => {
+  activeLang.value = activeLang.value === id ? null : id;
+};
 
 const handleClick = (id: number) => {
   activeItemId.value = activeItemId.value === id ? 0 : id;
@@ -32,9 +38,15 @@ const b = block('modal');
     <div :class="b('body')">
       <div :class="b('body-tabs')">
         <div :class="b('body-tabs-lang')">
-          <Button disabled mods="transparent">RU</Button>
-          /
-          <Button mods="transparent">ENG</Button>
+          <Button
+              v-for="item in languagesList"
+              :key="item.id"
+              mods="transparent"
+              :disabled="activeLang === item.id"
+              @update:model-value="handleCLick(item.id)"
+          >
+            {{ item.lang }}
+          </Button>
         </div>
         <NuxtLink :class="b('body-tabs-profile')" to="">
           <Icon name="gm-icon:profile" size="24" mode="svg"/>
@@ -106,10 +118,35 @@ const b = block('modal');
       &-lang {
         display: flex;
         align-items: center;
-        font-size: 12px;
+
+        button {
+          color: #8e8e8e;
+          line-height: 105%;
+          display: flex;
+          column-gap: 2px;
+          align-items: center;
+
+          &:first-child {
+            &::after {
+              content: '/';
+              margin-left: 5px;
+            }
+          }
+
+          &:disabled {
+            color: $dark-color;
+            font-weight: 600;
+          }
+
+          @include tablet {
+            font-size: 14px;
+          }
+        }
       }
 
       &-profile {
+        cursor: pointer;
+
         svg {
           width: 24px;
           height: 24px;

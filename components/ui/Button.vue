@@ -27,6 +27,10 @@ button {
     border-radius: $bor-radius-90;
     background-color: $green-color;
 
+    &:active {
+      scale: .9;
+    }
+
     @include laptop {
       font-size: 14px;
       padding: 10px 37px;
