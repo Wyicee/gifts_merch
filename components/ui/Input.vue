@@ -40,6 +40,10 @@ const emit = defineEmits<{
 .input {
   width: 100%;
 
+  &:focus {
+    outline: none;
+  }
+
   &.header {
     font-weight: 500;
     max-width: 491px;
@@ -76,10 +80,6 @@ const emit = defineEmits<{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
-    &:focus {
-      border: none;
-    }
   }
 }
 </style>
