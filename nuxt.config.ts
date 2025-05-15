@@ -3,6 +3,9 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
     modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt', '@nuxt/fonts'],
+    plugins: [
+        '~/plugins/bem-cn.ts'
+    ],
     fonts: {
         families: [
             { name: 'Gilroy', provider: 'none', },
