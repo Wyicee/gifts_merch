@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Form from '@/components/ui/Form.vue';
 import Input from '@/components/ui/Input.vue';
-import bemCn from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import { useListStore } from "~/stores/list";
 
@@ -11,7 +11,7 @@ const socialsList = footer.flatMap(list => list.socials);
 const categoriesList = footer.flatMap(list => list.categories);
 const informationList = footer.flatMap(list => list.information);
 
-const b = bemCn('footer');
+const b = block('footer');
 </script>
 
 <template>

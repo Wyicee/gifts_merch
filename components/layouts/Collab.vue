@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Swiper from '@/components/swiper/Swiper.vue';
-import bemCn from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import { useListStore } from "~/stores/list";
 
@@ -8,7 +8,7 @@ const { collab } = useListStore()
 
 const logosList = collab.flatMap(list => list.logos)
 
-const b = bemCn('collab');
+const b = block('collab');
 </script>
 
 <template>

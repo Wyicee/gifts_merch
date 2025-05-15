@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import bemCn from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
-const b = bemCn('order');
+const b = block('order');
 </script>
 
 <template>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
-import bemCn from 'bem-cn-lite'
+import block from 'bem-cn-lite'
 
 defineOptions({
   name: 'GmCreative',
 })
 
-const b = bemCn('gm-creative')
+const b = block('gm-creative')
 </script>
 
 <template>

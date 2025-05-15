@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue';
-import bemCn from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import { computed } from 'vue';
 import { useWindowSize } from '@vueuse/core';
@@ -9,7 +9,7 @@ const { width } = useWindowSize();
 
 const isDesktop = computed(() => width.value >= 767.98);
 
-const b = bemCn('popular');
+const b = block('popular');
 </script>
 
 <template>

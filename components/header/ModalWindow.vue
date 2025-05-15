@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue';
-import bemCn from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import { ref } from 'vue';
 import { useListStore } from "~/stores/list";
@@ -24,7 +24,7 @@ const handleClick = (id: number) => {
   activeItemId.value = activeItemId.value === id ? 0 : id;
 };
 
-const b = bemCn('modal');
+const b = block('modal');
 </script>
 
 <template>

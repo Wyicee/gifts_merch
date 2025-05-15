@@ -2,7 +2,7 @@
 import Input from '@/components/ui/Input.vue';
 import Button from '@/components/ui/Button.vue';
 import ModalWindow from '@/components/header/ModalWindow.vue';
-import bemCn from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import { useRoute } from 'vue-router';
 import { ref, watch } from 'vue';
@@ -27,7 +27,7 @@ watch(isOpen, (newValue: boolean) => {
   document.documentElement.classList.toggle('is-lock', newValue);
 });
 
-const b = bemCn('header');
+const b = block('header');
 </script>
 
 <template>

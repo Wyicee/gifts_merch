@@ -33,6 +33,12 @@ export default defineNuxtConfig({
           `
                 }
             }
-        }
+        },
+        ssr: {
+            noExternal: ['bem-cn-lite']
+        },
+        optimizeDeps: {
+            include: ['bem-cn-lite']
+        },
     }
 });

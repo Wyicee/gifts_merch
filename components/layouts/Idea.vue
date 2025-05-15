@@ -2,7 +2,7 @@
 import Input from '@/components/ui/Input.vue';
 import Button from '@/components/ui/Button.vue';
 import Form from '@/components/ui/Form.vue';
-import bemCn from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import { useWindowSize } from '@vueuse/core';
 
@@ -16,7 +16,7 @@ const formText = computed(() =>
     width.value >= 1023.98 ? 'в течение 1 часа' : 'в течение 15 минут',
 );
 
-const b = bemCn('idea');
+const b = block('idea');
 </script>
 
 <template>

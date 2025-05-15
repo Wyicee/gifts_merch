@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Header from '@/components/header/Header.vue';
-import bemCn from 'bem-cn-lite';
+import block from 'bem-cn-lite';
 
 import { useListStore } from "~/stores/list";
 
@@ -8,7 +8,7 @@ const { hero } = useListStore();
 
 const preferencesList = hero.flatMap(list => list.preferences);
 
-const b = bemCn('hero');
+const b = block('hero');
 </script>
 
 <template>

@@ -2,7 +2,7 @@
 
 ## Использование BEM и bem-cn-lite
 
-- Для генерации BEM-классов используется функция `b`, созданная через `bemCn('gm-creative')`.
+- Для генерации BEM-классов используется функция `b`, созданная через `block('gm-creative')`.
 - В шаблоне:
     - Для блока: `<div :class="b()">` → `class="gm-creative"`
     - Для элементов: `<div :class="b('body')">` → `class="gm-creative__body"`
@@ -26,10 +26,10 @@
 
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
-import bemCn from 'bem-cn-lite'
+import block from 'bem-cn-lite'
 
 // здесь указывается имя корневого компонента
-const b = bemCn('gm-creative')
+const b = block('gm-creative')
 </script>
 ```
 
