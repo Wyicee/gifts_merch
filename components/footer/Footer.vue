@@ -246,8 +246,8 @@ const b = block('footer');
             height: 24px;
 
             @include mobile {
-              width: 20px;
-              height: 20px;
+              width: 34px;
+              height: 34px;
             }
           }
         }

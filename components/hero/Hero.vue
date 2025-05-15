@@ -198,6 +198,10 @@ const b = block('hero');
         transform: scale(-1, 1);
         margin: 0;
       }
+
+      @include mobile-s {
+        @include visually-hidden;
+      }
     }
   }
 }
