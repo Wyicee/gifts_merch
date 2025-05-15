@@ -6,6 +6,17 @@ export default defineNuxtConfig({
     plugins: [
         '~/plugins/bem-cn.ts'
     ],
+    app: {
+        baseURL: '/gifts_merch/',
+        buildAssetsDir: '/_nuxt/',
+        cdnURL: ''
+    },
+    ssr: true,
+    nitro: {
+        prerender: {
+            routes: ['/']
+        }
+    },
     fonts: {
         families: [
             { name: 'Gilroy', provider: 'none', },
