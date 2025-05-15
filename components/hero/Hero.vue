@@ -104,6 +104,8 @@ const b = block('hero');
       @include mobile {
         font-size: 24px;
         max-width: 363px;
+        padding-top: 23px;
+        margin: 0;
       }
     }
 
@@ -120,7 +122,9 @@ const b = block('hero');
       }
 
       @include mobile {
+        padding-top: 11px;
         max-width: 385px;
+        margin: 0;
       }
     }
 

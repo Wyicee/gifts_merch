@@ -108,6 +108,14 @@ const b = block('header');
     column-gap: 22px;
     padding-block: 52px 45px;
 
+    @include tablet {
+      background: rgba(250, 251, 253, 0.44);
+    }
+
+    @include mobile {
+      padding-block: 20px;
+    }
+
     &-logo {
       @include laptop {
         width: 293px;
