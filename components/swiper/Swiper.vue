@@ -49,7 +49,7 @@ const swiperSettings = reactive({
 </template>
 
 <style scoped lang="scss">
-@import 'assets/styles/media';
+@use 'assets/styles/media';
 
 .swiper-wrapper {
   display: flex;

@@ -44,8 +44,8 @@ const b = bemCn('gm-creative')
 </template>
 
 <style scoped lang="scss">
-@import 'assets/styles/vars';
-@import 'assets/styles/media';
+@use 'assets/styles/vars';
+@use 'assets/styles/media';
 
 .gm-creative {
   background: url('/images/creative/bg.png') no-repeat;

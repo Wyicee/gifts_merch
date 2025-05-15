@@ -117,8 +117,8 @@ const b = bemCn('footer');
 </template>
 
 <style scoped lang="scss">
-@import 'assets/styles/vars';
-@import 'assets/styles/media';
+@use 'assets/styles/vars';
+@use 'assets/styles/media';
 
 .footer {
   background: url('/images/footer/bg.svg') no-repeat;
