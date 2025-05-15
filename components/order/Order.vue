@@ -25,7 +25,7 @@ const b = block('order');
         </p>
         <div :class="b('body-circles')">
           <div v-for="n in 4" :key="n" :class="b('body-circles-item')">
-            <NuxtImg src="/images/order/1.png" alt="" />
+            <NuxtImg src="/images/order/1.png" alt="" loading="lazy" />
           </div>
         </div>
       </div>

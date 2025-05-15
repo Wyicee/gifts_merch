@@ -33,7 +33,7 @@ const b = block('header');
 <template>
   <div :class="b()">
     <div :class="[b('main'), 'container']">
-      <NuxtImg :class="b('main-logo')" src="/icons/logo.svg" alt="" width="489" height="40" />
+      <NuxtImg :class="b('main-logo')" src="/icons/logo.svg" alt="" width="489" height="40" preload />
       <Input
           :class="[b('main-input'), 'hidden-tablet']"
           mods="header"

@@ -26,7 +26,7 @@ const b = block('hero');
             :key="index"
             class="hero__body-preferences-item"
         >
-          <NuxtImg src="/images/hero/circle.svg" alt="" width="109" height="94"/>
+          <NuxtImg src="/images/hero/circle.svg" alt="" width="109" height="94" preload />
           <p v-html="item"/>
         </div>
       </div>
@@ -36,6 +36,7 @@ const b = block('hero');
           alt="girls"
           width="785"
           height="610"
+          preload
       />
     </div>
   </div>

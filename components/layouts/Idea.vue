@@ -161,11 +161,12 @@ const b = block('idea');
 
     &-subtitle {
       grid-area: subtitle;
+      font-weight: 600;
       max-width: 550px;
       align-self: start;
 
       @include tablet {
-        max-width: 300px;
+        max-width: 320px;
       }
 
       @include mobile {

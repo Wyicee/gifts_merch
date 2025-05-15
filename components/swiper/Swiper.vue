@@ -43,7 +43,7 @@ const swiperSettings = reactive({
 <template>
   <Swiper v-bind="swiperSettings" :modules="modules" navigation :pagination="pagination">
     <SwiperSlide v-for="item in items" :key="item.id">
-      <NuxtImg :src="item.src" :alt="item.alt" format="webp" />
+      <NuxtImg :src="item.src" :alt="item.alt" format="webp" loading="lazy" />
     </SwiperSlide>
   </Swiper>
 </template>

@@ -31,7 +31,7 @@ const b = block('popular');
             <p>Шопперы</p>
           </figcaption>
         </figure>
-        <NuxtImg v-for="i in 3" :key="i" src="/images/popular/1.jpg" alt="" />
+        <NuxtImg v-for="i in 3" :key="i" src="/images/popular/1.jpg" alt="" loading="lazy" />
       </div>
     </div>
   </div>

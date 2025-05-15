@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     },
     image: {
         format: ['webp'],
+
     },
     icon: {
         customCollections: [
